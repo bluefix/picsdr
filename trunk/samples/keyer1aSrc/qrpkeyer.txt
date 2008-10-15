@@ -1,0 +1,61 @@
+Short description of a homebrew "QRP keyer" with a PIC microcontroller
+----------------------------------------------------------------------
+
+This project describes the construction of a real "QRP" keyer
+with a small microcontroller (PIC 16F84 or 16F628). This keyer features : 
+- variable CW speed, adjustable via poti from 20 to 300 letters per minute
+- two message-memories (50..64 letters), each controlled by a pushbutton
+- command mode only required for setup and more complex features
+- special modes like "endless" calling loop
+   and automatic contest number generation
+- very low power consumption: 50 microampere at 2.4 V supply when active,
+   less than 1 microampere in standby mode (which is enterd automatically)
+- simple circuit, can be built on PCB with less than "half matchbox size"
+- dash/dot-memory can be turned on and off
+   (I guess that's "Iambic mode A" and "B")
+- Controller is clocked by a built-in RC-oscillator
+   with only 50kHz clock frequency
+- passive piezo speaker can be connected as sidetone
+
+There are only minor differences between the old PIC16F84 and new PIC16F628
+variant, but if you have the choice, use the second. The 16F628 is cheaper
+than the 16F84 but better (more FLASH, more RAM). Be careful, the oscillator
+sections of these two PICs are different, all other pins are compatible.
+The 16F628 variant now uses an INTERNAL RC-OSCILLATOR so you don't need
+the 3.3 MOhm-resistor which was mentioned in an old circuit diagram.
+
+ 
+More about this Keyer can be found in:
+
+  QRPKEY_H.ZIP = HEX-file you need for programming the PIC processor
+  QRPKEY_D.TXT = deutsche Bedienungsanleitung und Beschreibung
+  QRPKEY_E.TXT = english manual and description
+  QRPKEY_C.GIF = circuit diagram of the QRP PIC keyer
+  QRPKEY_P.GIF = etching pattern for a very small PCB (2.6cm*3.7 cm)
+  KEYER1A.ZIP  = assembler sourcecodes for both 16F84 and 16F628 (your choice) 
+
+
+The ZIP and GIF files may be "seven plus"-coded for the packet radio system.
+It will take an ugly lot of time to upload these files, so please be patient.
+
+   And please don't ask me to send you programmed PICs or PCBs.
+Sorry, but I can NOT. You can find many simple PIC programmers everywhere,
+for example on this web site:
+   http://come.to.thepicarchive
+  (a mirror site of Dave Tait's ex-PIC-homepage
+   with a lot of PIC-related goodies)
+Alternatively you may try DL4YHF's simple PIC programmer for windoze,
+somewhere available at the DL4YHF homepage.
+
+Fuer die Leser des deutschen Funkamateurs: Im FA Mai '98 stand mal ein
+recht simpler PIC-Programmierer. Die dort genannte Adresse der Firma
+Silicon Studio wo man die Programmiersoftware beziehen kann stimmt
+nicht mehr, neue Quelle siehe oben. Oder Sie verwenden DL4YHF's simplen
+PIC-Programmer fuer Windows, gibt's irgendwo auf der Homepage.
+
+If your packet radio connection is as slow as mine, you may download this
+(and some more construction details) on the internet:
+  www.qsl.net/dl4yhf/keyer1.htm.
+
+Good luck and have fun with this project. Life is long enough for QRP.
+73's from DL4YHF (Wolfgang).
