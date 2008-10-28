@@ -1,7 +1,7 @@
 #include "LiquidCrystalKtms.h"
 
 #include <stdio.h>
-#include <string.h>
+//#include <string.h>
 #include <inttypes.h>
 #include "WProgram.h"
 /*
@@ -147,25 +147,115 @@ void LiquidCrystalKtms::print(const char c[])
 
 void LiquidCrystalKtms::send(uint8_t value, uint8_t mode) 
 {
-	if( 1== mode) digitalWrite(_ncs, 0);
+	if( 1== mode) 
+		{
+			digitalWrite(_ncs, 0);
+	    while ( 0 == _nbusy  ) delayMicroseconds(10);
+    }
+    
   digitalWrite(_cd, mode);    // 1 = cmd, 0= data
   digitalWrite(_nsck, 1);
   for (int i = 0; i < 8; i++) 
     {
+    	delayMicroseconds(50);
+     
+      digitalWrite(_nsck, 0);
+      digitalWrite(_si, 0x80 == (value & 0x80));
+      value = value << 1;
+      delayMicroseconds(50);
+      
+      digitalWrite(_nsck, 1);
+     }
+ delayMicroseconds(50);
+ 
+ if( 1== mode)
+ 	  {
+ 	  digitalWrite(_ncs, 1);
+    while ( 0 == _nbusy  ) delayMicroseconds(10);
+ 	  }
+
+
+}
+
+
+
+/*
+void LiquidCrystalKtms::send(uint8_t value, uint8_t mode) 
+{
+	if( 1== mode) digitalWrite(_ncs, 0);
+  digitalWrite(_cd, mode);    // 1 = cmd, 0= data
+  digitalWrite(_nsck, 1);
+ 
+ 
     	delayMicroseconds(50);
       digitalWrite(_nsck, 0);
       digitalWrite(_si, 0x80 == (value & 0x80));
       value = value << 1;
       delayMicroseconds( 50);
       digitalWrite(_nsck, 1);
-     }
-
+ 
+    	delayMicroseconds(50);
+      digitalWrite(_nsck, 0);
+      digitalWrite(_si, 0x80 == (value & 0x80));
+      value = value << 1;
+      delayMicroseconds( 50);
+      digitalWrite(_nsck, 1);
+ 
+    	delayMicroseconds(50);
+      digitalWrite(_nsck, 0);
+      digitalWrite(_si, 0x80 == (value & 0x80));
+      value = value << 1;
+      delayMicroseconds( 50);
+      digitalWrite(_nsck, 1);
+ 
+    	delayMicroseconds(50);
+      digitalWrite(_nsck, 0);
+      digitalWrite(_si, 0x80 == (value & 0x80));
+      value = value << 1;
+      delayMicroseconds( 50);
+      digitalWrite(_nsck, 1);
+ 
+    	delayMicroseconds(50);
+      digitalWrite(_nsck, 0);
+      digitalWrite(_si, 0x80 == (value & 0x80));
+      value = value << 1;
+      delayMicroseconds( 50);
+      digitalWrite(_nsck, 1);
+ 
+    	delayMicroseconds(50);
+      digitalWrite(_nsck, 0);
+      digitalWrite(_si, 0x80 == (value & 0x80));
+      value = value << 1;
+      delayMicroseconds( 50);
+      digitalWrite(_nsck, 1);
+ 
+    	delayMicroseconds(50);
+      digitalWrite(_nsck, 0);
+      digitalWrite(_si, 0x80 == (value & 0x80));
+      value = value << 1;
+      delayMicroseconds( 50);
+      digitalWrite(_nsck, 1);
+ 
+    	delayMicroseconds(50);
+      digitalWrite(_nsck, 0);
+      digitalWrite(_si, 0x80 == (value & 0x80));
+      value = value << 1;
+      delayMicroseconds( 50);
+      digitalWrite(_nsck, 1);
+ 
+    	delayMicroseconds(50);
+      digitalWrite(_nsck, 0);
+      digitalWrite(_si, 0x80 == (value & 0x80));
+      value = value << 1;
+      delayMicroseconds( 50);
+      digitalWrite(_nsck, 1);
+ 
+ 
   while ( 0 == _nbusy  ) delayMicroseconds(10);
  
  if( 1== mode)
  	  {
  	  digitalWrite(_ncs, 1);
-// 	  delayMicroseconds(500);
  	  }
-
 }
+*/
