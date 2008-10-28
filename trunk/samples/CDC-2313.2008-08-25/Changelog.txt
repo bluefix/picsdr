@@ -1,0 +1,17 @@
+This file documents changes in the firmware-only CDC driver for atmel's AVR
+microcontrollers. New entries are always appended to the end of the file.
+Scroll down to the bottom to see the most recent changes.
+
+* Release 2007-10-03
+
+ - Disabled the host request while transmitting in USART.
+ - Updated to the newest AVR-USB.
+* Release 2008-01-27
+
+  - Updated to the newest AVR-USB and enabled other clocks.
+  - Defined all configuration options into Makefile.
+  - Extended the interrupt polling interval.
+  - Enabled the notification message from the device.
+* Release 2008-08-25
+
+
