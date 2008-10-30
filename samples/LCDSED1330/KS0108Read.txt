@@ -1,0 +1,101 @@
+***************************************************************
+                      (c) COMPSys, 2002
+                     All Rights Reserved
+*************************************************************** 
+             DISCLAIMER and Terms of Agreement
+
+COMPSys kits are designed for other developers or hobbiests who 
+program Microchip PICs or Atmel AVRs and would like to incorporate 
+the COMPSys kit in a project of their own. The kits are not intended to be 
+"out of the box plug'n'play" devices. It is assumed that the buyer has
+knowledge of microcontrollers and the ability to program them. All kits 
+are for non-commercial use only.
+ 
+As with any kit, only the individual parts supplied are guaranteed 
+against defects and not the user assembled unit. All kit parts are 
+purchased from reputable sources such as Digikey Inc, Allied Electronics 
+and Mouser Inc, however, should a kit part be ascertained to be defective 
+it will be replaced at no charge within 30 (thirty) days of the purchase 
+date. Beyond that, COMPSys Workbench and / or the COMPSys developer(s) 
+assume no liability, implied or implicit and WILL NOT be held liable 
+nor be held responsible wholly or in part for any damages 
+caused by the construction of and / or use of their products sold.
+
+        Contact: rsdiol@compsys1.com for more information
+
+*******************************************************************
+ Windows and DOS are registered trademarks of Microsoft Corporation
+ PIC is a registered trade mark of MicroChip Corporation
+ PICBasicPro is a registered product of MicroEngineeringLabs Inc.
+ AVR is a registered trademark of Atmel Corporation.
+*******************************************************************
+
+
+
+IMPORTANT Notes for the KS0108 Version 
+=======================================
+
+(1) POWER SUPPLY:
+Supply voltage 7-15v DC to the + and - pins near the LM7805 5 volt regulator.
+
+CAUTION: DO NOT REVERSE POLARITY! This will damage the ICs.
+
+(2) BACKLIGHT:
+On Ver D pcbs DO NOT CONNECT PINS 19 and 20 of the 20-pin female header of the board to the KS0108 LCD 20 pin header. Pins 19 and 20 on the LCD are the power supply pins for the LED backlight.
+
+To use the backlight:
+---------------------
+Connect wires to the A (+ anode) and K (- cathode) pads on the left edge of the LCD (looking at it from the backside).
+
+DO NOT CONNECT THE A,K WIRES FROM THE LCD DIRECTLY TO A 5V POWER SOURCE! AS WITH ANY LED, A CURRENT LIMITING RESISTOR IS REQUIRED.
+
+Instead, do the following:
+Connect the wires from the A and K pads of the LCD to the A and K pins located on the GLiPIC board near the bottom left of the pcb. This will provide the LCD backlight with 5 volts via the 10 ohm series resistor on the board.
+
+The LED backlight is comprised of an LED array and uses considerable current -- in excess of 200ma!
+
+The 500ma LM7805 voltage regulator on the GLiPIC board will become quite hot when using the backlight, it is recommended that a heat shield be used if the backlight is to be left on for a long duration.
+
+(3) PRE-LOADED DEMO FIRMWARE
+
+ALL FIRMWARE IS WRITTEN IN PICBasicPro Ver 1.3x from MELabs (http://www.melabs.com)
+
+The PIC on the GLiPIC board is pre-loaded with a demo program to provide a means of functionality after the kit is constructed. The Windows application that works with the demo is GLUtil Ver 1.3.
+
+(4) LOADING OTHER FIRMWARE
+Other free firmware and corresponding Windows applications are available in the Benchware section at http://www.compsys1.com/workbench/ for the KS0108 display with for use with the GLipIC board.
+
+The firmware can be loaded on the PIC by conventional means such the external PIC programmer EPIC from MELabs. Or if you use a bootloader such as MElab's bootloader with MELoader.
+
+The free bootoader from Shane Tolmie's website http://www.workingtex.com/htpic/ can also be used. The Windows app PICLoader can be downloaded from his site. This make it possible to serially program the PIC without having to remove it from the GLiPIC board via the DB9 RS232 connector. Simply attach a standard RS232 cable from the DB9 connector on the GLiPIC board to any com port on a Windows PC and use PICLoader to download the firmware (hex files) to the PIC.
+
+(5) Samusung KS0108:
+The Samsung KS0108 controller is designed for small format LCD's. Like most other small format controllers it does not have an on-board character generator. This means that all characters have to be formed by combining a series of bytes. The bytes of the display KS0108 memory is arranged it a vertical oriented fashion.
+
+Example the large character "A" using 8x8 bytes arranged vertically
+LSB
+000XXX00
+00X000X0
+00X000X0
+00X000X0
+00XXXXX0
+00X000X0
+00X000X0
+00000000
+MSB
+
+By send the bytes 0x00,0x00,0x7e,0x11,0x11,0x11,0x7e,0x00 to display would form the letter A.
+
+To assist in designing characters one may use the BinHex and BinHex2 free Windows applications available at the COMPSys Workbench website. There a two ready made character sets (a standard 5x7 and an abbreviated mini 3x5) also available in the the KS0108 section. The abbreviated mini set can be loaded in the PIC's eeprom the standard set can be loaded in the external I2C eeprom (or both in the external eeprom, if the PIC's eeprom is required for other use).
+
+Graphic routines such as SETDOT, UNSETDOT, CIRCLE, SQUARE, DIAMOND etc are also available for a nominal cost from the COMPSys Workbench website.
+
+
+
+
+
+
+
+
+
+

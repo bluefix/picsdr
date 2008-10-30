@@ -1,0 +1,25 @@
+Information on files
+====================
+Written in BascomAVR 1.11.62
+Ranjit Diol
+http://www.compsys1.com/workbench/
+rsdiol@compsys1.com
+
+Developed on a STK500 using an AT90S8535
+
+
+GLS330.BAS
+Beta ver 0.0.5 Aug 2nd, 2001
+----------------------------
+The main application is setup for a 256x128 Sed1330F LCD Display by Hyundai. Make any changes necessary to accomodate your brand of a Sed1330 controlled LCD. This application demonstrates the use of text, it will also display a 64x64 bitmap image which is stored in the 512byte eeprom. You will need to load the eeprom either with the hex or eep file.
+
+Eeprom files:
+-------------
+GLS330EP.HEX - This is the demo 64x64 bitmap that can be loaded in the eeprom. AVR Studio can load hex files into the eeprom.
+
+GLS330.EEP - This is the eep file format of the bitmap, if you can load eep files then you can use this one to load the bitmap.
+
+LOADEEP.BAS - This will load the eeprom with the bitmap data, which can then be read and saved using AVR Studio
+
+
+
