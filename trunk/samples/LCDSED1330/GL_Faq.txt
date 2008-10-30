@@ -1,0 +1,84 @@
+http://www.compsys1.com/workbench/
+
+Information on GLiPIC and GLUtil by Ranjit Diol rsdiol@compsys1.com  April, 2001
+--------------------------------
+
+My Background:
+
+I run a small part-time computer consultation and repairs service called COMPsys, in a small town in southwest Michigan, USA.
+
+I'm merely a 'down-in-the-basement-one-man-operation' who likes to tinker with microcontrollers and repair computers. I have a regular job and squeeze this stuff in on my spare time. I came up with this graphic lcd idea after I noticed that there were not many affordable units available for the average hobbiest. It was all sparked by the 128x32 graphic LCD sold by BGMicro Inc. for $8.95! - unfortunately they seem to have run out of them! Using that display one could easily construct it for less than $25
+
+I only buy a dozen or so of parts at a time, and purchase more as needed. Therefore my supply is limited.
+
+-------------------------------
+
+=====================
+Questions and Answers
+=====================
+
+Q:
+How do GLiPIC/GLIPICW.BAS and GLUtil/GLSDEMO.BAS work?
+
+A;
+All the PIC programs are written in PICBasicPro, if you are a hobbiest and/or developer using PICBasicPro you can edit the program to suit your needs. 
+
+There are two Windows interfaces that are available at website GLiPIC and GLUtil. The GLiPIC app requires that the GLiPICW.BAS program be loaded in the PIC. The GLUtil app expects the GLSDEMO.BAS to be loaded in the PIC.
+
+I'll try to explain how each one works. Initially the GLiPIC Windows program is setup for 9600 baud but can be set to 19200 baud and then recompiled. The GLUtil Windows program is set for 19200 baud. Perhaps even a high baud rate is possible, however I have not as yet tried that.
+
+Essentially, this is how the GLiPIC program is designed to work:
+
+1. The program starts by initializing the LCD properly and sets up the graphic subroutines as well as the serial port for 9600 baud
+
+2. It then branches to a serial input loop where it waits for the "*" character followed by a group of numbers. Based on the first number it branches to one of 3 routines.
+
+  Routine A: Enter a loop and wait for the ']' character followed by 32 ASCII characters from the serial port.Convert them from ASCII to hex values and then place the bytes on the display. Start from the top left and move horizontally line by line to the bottom right of the display and then start over again. ( The display size is 128 x 8 bytes, 1024 bytes )
+
+Routine B: Get ASCII bytes from the serial port, in chunks of 32 at a time, convert them from ASCII to hex values and load them into the external I2C eeprom, starting at the user defined address.
+
+Routine C: Enter a perpetual loop that reads the bytes stored in the I2C external eeprom starting at location 0000, and display them on the LCD. After reading 1024 bytes pause a couple of seconds and then read the next 1024 byes. Continue this until all 8K bytes are read ( 8 screen displays) and then start all over.This assumes a 64Kbit I2C Eeprom is connected.
+
+The GLiPIC Windows app provides the following:
+
+It has a 128x8 byte 'Drawing' area where one can draw in or load a bmp image file, done with Windows Paint Program or some other graphic imaging utility, as long as it has a 1 bit resolution. The program then converts the 1K image to hex bytes and displays the results in an editable text window. The use can specify the format (such as 0x, $) and delimiters as well as headers and footers. The user can modify, if needed, any data in the text window and then copy it to the Windows clipboard for pasting in some other document. The program can also take the image and directly display it on the LCD (providing no formatting is used) or it can load it to the external I2C eeprom and allows the user to specify the starting address.
+
+The GLUtil Windows interface relies on the GLSDEMO.BAS PIC program.
+
+The GLSDEMO.BAS pic program is designed to allow the user to interact with the various graphic subroutines, such drawing circles, rectangles and placing mini-characters on the display.
+
+The program start by initializing the LCD and then branches to a serial input loop where it waits for the ']' character followed by a series of parameters which determine the function and the values to use. 
+
+For example: The user wants to draw a circle at location 64 (horiz) and 32 (vert) with radius of 10, first the decimal values have to be converted to hex (40,20 and 0a) and then sent using any terminal program (or GLutil, which performs the conversion for you):
+
+ ]c]40200a
+
+The 'c' tells the program to branch to the get_circle_param and wait for another ']' , then receive 6 ASCII values, which are converted by pairs into 3 hex bytes. ASCII '4' and '0' convert to hex 40, ASCII '2' and '0' to hex 20, and ASCII '0' and 'a' to hex 0a 
+
+Using these values it assigns them to the appropriate variables and then performs a gosub to the circle subroutine, after the return from the subroutine it loops back to the serial port and waits once more for the ']' character.
+
+
+Q:
+During this transfer of data from the eeprom to the screen what goes on? does the eeprom just store alot of commands and then sequentially output them onto the screen, e.g. draw point A,, B, C, D, etc untill the screen is complete? or what, the reason I ask is could I just as easily fill up an external EEPROM with screens of information and then transfer them from the project PIC into the GLiPIC board, or is this too complicated. What would be the code to do this?
+
+A:
+Neither the internal eeprom nor the external eeprom have commands stored in them, the are used merely as storage areas images, characters etc. Therefore, yes, you could load an eeprom somewhere else and then put in on the GLipIC board.
+
+Q:
+I also have some suggestions for your software, if you wouldnt mind hearing them;
+
+A:
+Not at all, how else can one improve!!
+
+Q:
+The ability to view the commands sent to the display in real time would be a real useful addition. This would mean that the commands could be simply pasted into PBP saving time.
+Both Windows applications GLiPIC and GLUtil have Receive and Transmit text areas that could be used for that purpose.
+A more advanced feature that would be useful is the ability to draw a picture in a 128x64 grid, and then the program produce the code to draw this screen. This code could them be programmed into an eeprom, stored within the pbp program, stored onto the GLiPIC board EEPROM, or whatever.
+
+A:
+The Windows application GLiPIC does exactly that!
+
+
+Please feel free to comment and or make suggestions.
+
+Ranjit
