@@ -161,18 +161,14 @@ void LiquidCrystalKtms::send(uint8_t value, uint8_t mode)
       delayMicroseconds(50);    //high time 
                         // busy low time upto 4 to 44 clock cycle times  ( 40 us to 440us)
       while ( 0 == _nbusy  ) delayMicroseconds(1);
-      delayMicroseconds(1);
       digitalWrite(_nsck, 0);
-      
       digitalWrite(_si, 0x80 == (value & 0x80));
       value = value << 1;
-
       delayMicroseconds(50);   //low time
       digitalWrite(_nsck, 1);
      }
       while ( 1 == _nbusy  ) delayMicroseconds(1);
       while ( 0 == _nbusy  ) delayMicroseconds(1);  //THBK busy high to -clk low = 0ns
-      //delayMicroseconds(mode?50:5);
    if( 1== mode)
  	   {
  	   digitalWrite(_ncs, 1);
