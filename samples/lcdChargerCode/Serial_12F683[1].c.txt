@@ -1,0 +1,166 @@
+/********************************************************************
+ *                                                                  *
+ *  Project: Serial 12F683                                          *
+ *   Source: Serial_12F683.c                                        *
+ *   Author: Mike McLaren, K8LH                                     *
+ *     Date: 12-Jul-08                                              *
+ *  Revised: 12-Jul-08                                              *
+ *                                                                  *
+ *  12F683 Half Duplex 9600 baud bit-banged serial I/O test         *
+ *                                                                  *
+ *                                                                  *
+ *      IDE: MPLAB 8.01 (tabs = 4)                                  *
+ *     Lang: SourceBoost BoostC v6.87, Lite/Free version            *
+ *                                                                  *
+ *                                                                  *
+ ********************************************************************/
+
+#include <system.h>
+
+#pragma DATA _CONFIG, _FCMEN_OFF&_IESO_OFF&_MCLRE_OFF&_WDT_OFF&_INTOSCIO
+
+#pragma CLOCK_FREQ 8000000
+
+//--< function prototypes >------------------------------------------
+//--< typedef and defines >------------------------------------------
+
+typedef unsigned char u08;
+typedef unsigned int u16;
+
+#define TxPin 0             // Tx on GP0
+#define RxPin 3             // Rx on GP3
+
+//--< variables >----------------------------------------------------
+
+u08 RxBuff [16]@0xA0;       // 16 byte circular Rx buffer, A0..AF
+u16 TxChar;                 // Tx character work register
+u08 RxPull = 0xA0;          // circular Rx buffer pull (rd) pointer
+u08 RxPush = 0xA0;          // circular Rx buffer push (wr) pointer
+u08 RxCount = 0;            // Rx bit counter (isr)
+u08 TxCount = 0;            // Tx bit counter (isr, put232)
+
+//--< functions >----------------------------------------------------
+
+u08 rdy232()                // test for Rx character available
+{ return(RxPull!=RxPush);   // 0 = buffer empty, 1 = char available
+}
+u08 get232()                // pull Rx char from circular buffer
+{ fsr = RxPull;             // setup buffer indirect address
+  RxPull = fsr + 1;         // increment circular 'pull' pointer
+  RxPull.4 = 0;             // pseudo %16 (circular A0..AF range)
+  return indf;              // return Rx character
+}
+void put232(u08 data)       // blocking rs-232 output
+{ while(TxCount|RxCount);   // wait while Tx in progress
+  TxChar = 2 * data;        // b0 = 0 (start bit), b1..b8 = data
+  TxChar |= 512;            // b9 = 1 (stop bit), b10..b15 unused
+  TxCount = 10;             // tell ISR to send TxChar
+  t2con.TMR2ON = 1;         // turn on timer 2
+}
+void put232(rom char *data) // overload function for string data
+{ char n = 0;               //
+  char temp;                //
+  while(temp = data[n++])   //
+    put232(temp);           //
+}
+
+//--< main >---------------------------------------------------------
+
+void main()
+{ 
+  osccon = 0b01110000;      // set 8 MHz INTOSC
+  while(!osccon.HTS);       // wait 'til oscillator stable
+  ansel = 0;                // a2d module off, digital I/O
+  cmcon0 = 7;               // comparator off, digital I/O
+  gpio = 1<<TxPin;          // Tx pin output latch hi
+  trisio = 1<<RxPin;        // all outputs except for RxPin
+  ioc = 1<<RxPin;           // enable RxPin GP3 interrupt-on-change
+
+//  setup 104 usec Timer 2 interrupts (8 MHz clock) for 9600 baud
+
+  pir1 = 0;                 // clear peripheral interrupt flags
+  pie1.TMR2IE = 1;          // set Timer 2 interrupt enable bit
+  tmr2 = 0;                 // clear Timer 2 register
+  t2con = 0b00000000;       // '0-------' unimplemented bit
+                            // '-0000---' TOUTPS<3:0>, postscale 1
+                            // '-----0--' TMR2ON, Timer 2 off
+                            // '------00' T2CKPS<1:0>, prescale 1
+  pr2 = 208-1;              // 208 x 500-nsec 'ticks' = 104 usecs
+  intcon = 0b11001000;      // '1-------' GIE, enable global ints
+                            // '-1------' PEIE, enable peripheral ints
+                            // '--0-----' T0IE, TMR0 ints disabled
+                            // '---0----' INTE, off
+                            // '----1---' GPIE, IOC ints enabled
+                            // '-----000' T0IF/INTF/GPIF flags
+
+  delay_ms(100);            //
+  put232("\x1B[2J");        // ANSI home cursor, clear screen
+  put232("K8LH 12F683 Half Duplex 9600 Baud Serial I/O Demo\r\n\n");
+  while(1)
+  { 
+    if(rdy232())            // if rx char available
+      put232(get232());     // echo it back
+  }
+}
+
+/********************************************************************
+ *  interrupt service routine                                       *
+ *                                                                  *
+ ********************************************************************/
+ 
+void interrupt()
+{ 
+  if(intcon.GPIF) {         // IOC start bit leading edge interrupt
+    asm {
+      movf    _gpio,W       //
+      bcf     _intcon,GPIF  // clear IOC interrupt flag
+      bcf     _ioc,RxPin    // turn off RxPin interrupt-on-change
+      movlw   10            // setup Rx bit counter var'
+      movwf   _RxCount      // 10 bits (1 start, 8 data, 1 stop)
+      movlw   156           // 208 - 104 + 52 cycles
+      movwf   _tmr2         // 1/2 bit time minus ISR overhead
+      bsf     _t2con,TMR2ON // turn on Timer 2
+    }
+  }
+  else {                    // Timer 2 interrupt
+    pir1.TMR2IF = 0;        // clear Timer 2 interrupt flag bit
+    if(TxCount)             // if Tx in progress
+    { asm {                 //
+      rrf    _TxChar+1,F    //
+      rrf    _TxChar+0,F    // C = data bit
+      movf   _gpio,W        // W = current GPIO
+      andlw  0b00111110     // clr TxPin bit to send a '0'
+      btfsc  _status,C      // data = 0?  yes, skip, else
+      iorlw  0b00000001     // set TxPin bit to send a '1'
+      movwf  _gpio          // send data bit
+      decf   _TxCount,F     //
+      btfsc  _status,Z      // skpnz
+      bcf    _t2con,TMR2ON  // turn off timer 2
+      }
+    }
+    if(RxCount) {           // if Rx in progress
+      asm {                 //
+      movf   _RxPush,W      // circular buffer 'push' pointer
+      movwf  _fsr           //
+      bcf    _status,C      //
+      btfsc  _gpio,RxPin    //
+      bsf    _status,C      //
+      rrf    _indf,F        //
+      decfsz _RxCount,F     // last bit received?
+      goto   exit           // no, branch, else
+      rlf    _indf,F        // get rid of the stop bit
+      incf   _RxPush,W      //
+      andlw  0xAF           // pseudo %16 (circular A0..AF range)
+      xorwf  _RxPull,F      // buffer full, RxPush+1 == RxPull?
+      btfss  _status,Z      // yes, skip (ignore new char), else
+      movwf  _RxPush        // update Rx buffer 'push' pointer
+      xorwf  _RxPull,F      // fix RxPull pointer
+      bsf    _ioc,RxPin     // enable RxPin interrupt-on-change
+      bcf    _t2con,TMR2ON  // turn off timer 2
+      exit:
+      }
+    }
+  }
+}
+
+

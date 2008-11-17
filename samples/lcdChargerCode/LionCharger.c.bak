@@ -1,0 +1,50 @@
+
+/*--------------------------------------------------------------------------------
+
+There are various Li-Ion and Li_Po chargers. I have used a L6924D but they are only surface mount so not easy to use.
+
+All chargers seem to follow the same rules:-
+
+Do not charge when bellow 10 deg C or above 40 deg C
+Charge very slowly if less than 3.2 V
+Limit voltage to 4.1 or 4.2 V
+Stop charging when current falls to 1/20th of max current.
+
+I think that the most important rule for most of the time is the voltage limit. 
+Quote:
+Originally Posted by jpanhalt 
+The charging profile for LiPo batteries is described here:
+" These chargers give a constant current charge rate at 75% the cell capacity until the pack voltage reaches 3.6 volts per cell. This charges the pack to about 80% of total capacity. At this point the charger switches to a constant voltage charge rate of 3.6 volts per cell to top off the battery. To charge a fully depleted pack typically takes about one and a half hours. " (Source: RC Hobbies) 
+
+They are WRONG!
+A Li-po battery cell is charged with a 4.2V source. The charger's current is limited to the capacity rating of the battery cell. When the cell's voltage reaches 4.2V it is about 75% charged then it will draw less current. When the current drops to about 0.01 of the cell's capacity then it is fully charged and must have the charger turned off.
+ don't know either way which is correct. The Kokam battery producer states on its site: http://www.kokam.com/english/biz/rc.html
+
+"Similar to other lithium rechargeable batteries, SLB452128 has typical charge discharge characteristics. SLB452128 can be charged by simple charging process with constant current at the beginning of the charge cycle and followed by constant voltage at the end of the charge cycle." 
+
+Are there other reliable sources that suggest a constant voltage charge for the entire charging cycle? John
+So, is the difference between what Kokam and RC Hobbies say and your comment the distinction between "constant current" and "current limited?" What is the practical difference between the two? I suspect "constant current" chargers are also voltage limited.
+
+I use a "sophisticated," LCD-screened, expensive charger, and it still puffs the batteries. And that was starting with a pack at 3.8V per cell. Can't wait until the weather warms up enough, and I can launch my sailplanes in the usual way. LiPo's are great power to weight, but a real expensive PITA.
+John
+
+Edit: corrected LCD screen
+
+Current limited, constant current and regulated current have the same meaning for a battery charger. Then the battery determines the current-limited voltage. The voltage has a max of 4.2V.
+
+I don't have a Li-po battery so I don't know if it is normal for them to "puff".
+Maybe your charger has its current set too high.
+
+A Li-po battery charger has its voltage set very accurately to exactly 4.2V. Some can charge Li-po cells in series then the voltage is in multiples of 4.2V.
+
+My RC "glider" has an electric motor driving a folding prop. It is powered from a heavy Ni-MH battery. The plane glides like a brick. It is too heavy to climb high and frequently stalls when trying.
+
+My charger is one of those that charges the individual cells through a separate connector. It then balances them, presumably to exactly 4.2V, but I am not sure whether anything else is involved in the balance stage. Among hobbyists, series charging of LiPo packs is quickly losing favor because of the problem of over-charging some of the cells.
+
+With respect to the personal anecdote, the charge current was set at 1.0 A, which was well below the maximum allowed rate of 2.1 A for the cells I was using. 
+
+My glider, which has had only one flight after conversion from a pure glider to electric was a dream to fly. It soared as well or better than it did before conversion.
+
+You need another sailplane, rather than fight trying to keep some brick up. For the type of gliders I fly, it is not so much weight as it is drag. They can go quite fast, but lose little altitude. John
+__________________
+*/    

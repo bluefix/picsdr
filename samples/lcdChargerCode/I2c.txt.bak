@@ -1,0 +1,425 @@
+/*
+     
+    
+
+
+   Electronic Circuits Projects Diagrams Free > Electronics Forums > Electronic Projects Design/Ideas/Reviews  
+ lcd serial  
+ User Name  Remember Me? 
+Password   
+      
+
+Register Blogs Calendar Today's Posts Search  
+
+
+
+
+Electronic Projects Design/Ideas/Reviews Are you building an electronic project or want to? Maybe you need some assistance? Come and submit your electronic questions here and let our experienced members find a solution. 
+
+
+Search Forums 
+      
+
+Show Threads   Show Posts  
+Tag Search 
+Advanced Search 
+Search Blogs 
+    
+ 
+Advanced Search 
+
+Go to Page... 
+   
+ Page 1 of 2 1 2 >   
+ 
+   Thread Tools   Display Modes   
+
+ 30th October 2003, 02:52 AM    (permalink)  
+sgboi  lcd serial 
+
+--------------------------------------------------------------------------------
+
+http://www.myplace.nu/mp3/files/pcd8544.pdf
+
+
+this is a lcd taken from Nokia 3310. i want to program it using the parallel port, is it possible. bcause it uses serial interface. if yes, how to do so??
+
+
+
+if not, how am i going to program it through the serial port? i have not program with serial ports b4 and has no idea in doing so.. 
+     
+
+ 30th October 2003, 03:42 AM    (permalink)  
+bmcculla  
+
+--------------------------------------------------------------------------------
+
+The serial interface looks like I2C,SMBus,TWI. All three are the same thing. You shouldn't have too much trouble emulating the interface on the parallel port. I don't think there is any way to use the serial port for this interface- they're two different serial types. 
+
+Brent 
+     
+
+ 30th October 2003, 05:51 AM    (permalink)  
+sgboi  
+
+--------------------------------------------------------------------------------
+
+is my connection correct? also wat should i connect to the Vout?
+
+
+
+pin 18 of printer should be pin 17
+Attached Images a_350.jpg (20.0 KB, 797 views) 
+  
+     
+
+ 30th October 2003, 06:31 AM    (permalink)  
+sgboi  
+
+--------------------------------------------------------------------------------
+
+Quote:
+Originally Posted by bmcculla 
+The serial interface looks like I2C,SMBus,TWI. All three are the same thing. You shouldn't have too much trouble emulating the interface on the parallel port. I don't think there is any way to use the serial port for this interface- they're two different serial types. 
+
+Brent 
+
+
+
+how do i emulate the serial transfer? do i send a a low for sclk and send the msb and then send high again for sclk and continue doing this until the lsb? 
+     
+
+ 30th October 2003, 10:42 AM    (permalink)  
+sgboi  
+
+--------------------------------------------------------------------------------
+
+also wat i need to initialise for the lcd? 
+     
+
+ 30th October 2003, 10:49 AM    (permalink)  
+Camping  
+
+--------------------------------------------------------------------------------
+
+Hey,
+
+It looks you have a I²C that is the most use serial port within products. Like communicastion between IC`s.
+
+I²C will be 2 line then.
+
+You need to know how it works and it works with a Pull-down system and I don`t know a PC port have that!!! So you have to look for the driver on your LCD and get a Datasheet from it. And you can look on the Philips site for info about I²C.
+
+I think you have to look for a converter that can put a RS232(used in your COM port) to I²C so then you can use your display on a computer. You always can use a LCD with a Pic processor. And a Pic processor can you connet to a PC if needid. :P
+
+Cya 
+     
+
+ 30th October 2003, 11:03 AM    (permalink)  
+sgboi  
+
+--------------------------------------------------------------------------------
+
+this are all the infomation that i have.
+
+i got a nokia 3310 which i wish to program through parallel port using c language.. 
+
+can anyone help me with it? 
+
+i just need to know wat are the connection to be made and how to initialize the lcd. Also i need the voltage lvl that is needed for the logic of the lcd..
+
+for my lcd, there are the following pins.
+
+pin1 V+
+pin2 Sclk
+pin3 Sda
+pin4 DorC
+pin5 Cs
+pin6 Gnd
+pin7 Vout(DC/DC voltage converter)
+pin8 Reset
+
+
+for its datasheet
+http://sandiding.tripod.com/softan/pcd8544.pdf
+
+
+please help
+thx 
+     
+
+ 30th October 2003, 11:07 AM    (permalink)  
+sgboi  
+
+--------------------------------------------------------------------------------
+
+camping do u mean im cannot do it using the parallel port? also i need to find a converter to convert my serial port to I²C? 
+
+
+thx anyway.. :shock: 
+
+someone please help soon[/code] 
+     
+
+ 30th October 2003, 11:26 AM    (permalink)  
+Exo  
+
+--------------------------------------------------------------------------------
+
+You can use the LPT port for I²C but you have to add a little extra hardware (some resistors and transistors)...
+
+The clock and data lines have to be pulled up to 5V each with a resistor
+and each connected to an input pin of the LPT port. To allow software to read the current status of clock and data...
+
+Then 2 output pins of the LPT port must each be connected to a transistor switch to be able to pull clock or data low...
+This because I²C is a open collector bus...
+
+If you don't understand i'll add a scematic later... but i dont have the time now
+
+You will also need to get a grip on the I²C protocol if you want to write software for it... do a google search on "I2C Protocol"
+
+And then if you have that all set up. You'll need to know what to send over your I²C that the LCD will understand. I don't have info on the instruction set of a nokia LCD but there should be some sites wich have the command set. 
+     
+
+ 30th October 2003, 05:15 PM    (permalink)  
+sgboi  
+
+--------------------------------------------------------------------------------
+
+Ok i sort of understand I²C. 
+
+Let say my parallel port provides 5V. Then i program it to run such as
+
+Sclk Low
+Sda Low/High(MSB)
+Delay 1ms
+Sclk High
+
+and i do this until LSB.is it correct? is it fine to do away with the transitor and resistor?
+
+
+Also wat do i connect to the Vout? Sry to ask so many things, im new in all this and wish to learn 
+     
+
+ 30th October 2003, 09:18 PM    (permalink)  
+sgboi  
+
+--------------------------------------------------------------------------------
+
+up 
+     
+
+ 30th October 2003, 09:35 PM    (permalink)  
+Exo  
+
+--------------------------------------------------------------------------------
+
+I²C is a little more complicated then that. Search on philips site
+(www.philipssemiconductors.com) .. there should be a PDF that completely explains I²C...
+
+here's my setup... this works and is in use. I use it for TV/Video repairs. Allows me to monitor the bus with my pc. I wrote the software for it in watcom c++ (for dos). But you should be able to do it in windows with visual basic or something
+
+I don't know anything about the lcd itself. So dont ask me where to connect Vout. :P
+Attached Images PPortI2C.JPG (36.6 KB, 1401 views) 
+  
+     
+
+ 31st October 2003, 04:57 AM    (permalink)  
+sgboi  
+
+--------------------------------------------------------------------------------
+
+info from:
+http://www.semiconductors.philips.co...8/39340011.pdf
+http://www.nxp.com/acrobat_download/literature/9398/39340011.pdf
+
+
+Quote:
+Detection of START and STOP conditions by devices
+connected to the bus is easy if they incorporate the
+necessary interfacing hardware. However,
+microcontrollers with no such interface have to sample the
+SDA line at least twice per clock period to sense the
+transition.  
+
+i dun quite understand this statement
+
+
+
+i think im getting the hang of I²C already 
+
+So can you see for me whether my steps of the program is correct?
+
+Here are the steps:
+
+1) Check whether bus is free => check SCL(11) and SDA(12) for high
+If free, set SCL(3) high and set SDA(2)high to low 
+
+2) Provide clock signal to SCL(3)
+check SCL(11), 
+SCL(11) = low, Delay 
+SCL(11)= high, Continue with A
+above 3 sentance is to check whether slave has completed its operation.
+Will the device auto delay or i need to add the 3 statements?
+
+A)Set SCL(3) low
+B)Set SDA(2) high/low
+C)Delay
+D)Set SCL(3) high
+E)Delay
+go back to A until 8 bit data and ack bit is sent.
+
+
+
+3)Check for acknowledgement SDA(12),
+if high => Stop program 
+if low => continue sending next 8 bit data
+
+4) To stop after 8 bit transfer, set SDA(2) from low to high when SCL(11) is high.
+
+
+hope this is correct..
+also if i only use one master directly to the slave device, do i need to send the binary address? if yes, how would i get the binary address of the slave device. 
+
+
+
+
+
+
+
+
+
+thx everyone. 
+     
+
+ 31st October 2003, 05:55 AM    (permalink)  
+sgboi  
+
+--------------------------------------------------------------------------------
+
+A few more questions:
+
+1) How to know the timing of the clock? (Means: How long i need to delay when i change from high pulse of clock to low pulse?)
+
+2) How can i get the Rp(from 5v) and Rs(pin2 and pin3) value?
+Im estimating.
+Is 2kohm for Rp fine?
+Is 700ohm for Rs fine?
+
+And also what will be a suitable transistor for it? 
+     
+
+ 1st November 2003, 11:44 AM    (permalink)  
+Exo  
+
+--------------------------------------------------------------------------------
+
+Quote:
+Originally Posted by sgboi 
+info from:
+http://www.semiconductors.philips.co...8/39340011.pdf
+
+
+
+Quote:
+Detection of START and STOP conditions by devices
+connected to the bus is easy if they incorporate the
+necessary interfacing hardware. However,
+microcontrollers with no such interface have to sample the
+SDA line at least twice per clock period to sense the
+transition.  
+
+i dun quite understand this statement 
+
+If the controller device you are using doesn't gave a hardware I2C interface then you must incorporate I2C in software. A start condiction is a 1 to 0 zero transition of SDA while SCL is high. To sense this transistion you must poll SDA at least twice. Once to see its high, second to see its low.
+
+
+Quote:
+Originally Posted by sgboi 
+i think im getting the hang of I²C already 
+
+So can you see for me whether my steps of the program is correct?
+
+Here are the steps:
+
+1) Check whether bus is free => check SCL(11) and SDA(12) for high
+If free, set SCL(3) high and set SDA(2)high to low 
+ 
+
+If you'r only going to attach the LCD to your bus then this will work fine. But if you add multiple devices to the bus then this method may cause errors. if you poll SDA & SCL just at a moment when the bus is not free but a device is sending a 1 then SCL & SDA will also be both '1'
+
+You should check for start & stop conditions. when you detect a start condition you know the bus will not be free until you detect a stop
+
+
+Quote:
+Originally Posted by sgboi 
+2) Provide clock signal to SCL(3)
+check SCL(11), 
+SCL(11) = low, Delay 
+SCL(11)= high, Continue with A
+above 3 sentance is to check whether slave has completed its operation.
+Will the device auto delay or i need to add the 3 statements? 
+
+A device that is fully compliant to the spec should keep SCL low if it needs more time to process. So it should auto-delay. Still, adding a delay between your transitions is recommended. I²C in normal mode runs at about 100Khz. Calculate delays to get your output approx. on this speed
+
+
+
+Quote:
+Originally Posted by sgboi 
+A)Set SCL(3) low
+B)Set SDA(2) high/low
+C)Delay
+D)Set SCL(3) high
+E)Delay
+go back to A until 8 bit data and ack bit is sent.
+
+
+
+3)Check for acknowledgement SDA(12),
+if high => Stop program 
+if low => continue sending next 8 bit data 
+
+I would not just stop the program if you receive a nack. Try to handle the error before giving up 
+     
+
+ Page 1 of 2 1 2 >   
+ 
+
+Bookmarks 
+ Digg  del.icio.us  StumbleUpon  Google  
+
+
+« 555 timer | do anyone have mmc to sd card schematic? » 
+
+
+Thread Tools 
+ Show Printable Version 
+ Email this Page 
+
+Display Modes 
+ Linear Mode 
+ Switch to Hybrid Mode 
+ Switch to Threaded Mode 
+
+  
+ 
+
+
+
+
+
+All times are GMT. The time now is 02:00 PM.
+
+
+Electronic Projects Circuits Diagrams - Archive - Top  
+
+
+Electronic Circuits  |  Electronics Wiki 
+
+Powered by vBulletin® Version 3.7.0
+Copyright ©2000 - 2008, Jelsoft Enterprises Ltd. 
+
+
+
+
+*/
