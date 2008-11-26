@@ -1,0 +1,171 @@
+
+
+http://web.mac.com/tomtastic/site/log/Entries/2007/6/18_Holux_GPSlim236_boot_mode.html
+
+   main log for sale   Holux GPSlim236 boot mode
+ Should the urge grab you to play with firmware on these SiRFStarIII handheld GPS units, you will undoubtedly discover there is a boot mode one must enable before the 4Mbit flash chip can be read from or written to using SiRFflash.
+
+
+
+
+
+Whilst we can send message 148 (0x94) to it from SiRFdemo to enable this mode, it’s handy to know one can also short the highlighted pads above (two gold pads enclosed in the white square border just above the label ‘C48’) whilst turning the unit on to achieve the same thing.
+
+
+
+
+
+“PSRF100,0,38400,8,1,0” is the NMEA sentence to enable SiRF mode.
+
+
+“94” is the SiRF binary code to enable boot mode.
+
+
+
+
+
+As long as we always communicate at 38400 baud, it is perfectly possible to flash the firmware over bluetooth, and as you now know the location of the boot mode enabling pads, you can easily recover from a bad flash (eg. trying to push updated SiRF firmwares from other products onto it to enable proper SBAS support).
+
+
+
+
+
+To put the GPSlim236 into boot mode, you’ll need :
+
+
+setupSiRFDemo3.87.zip (thanks Antineutrino!)
+
+
+
+
+
+Then to read or write the firmware to the GPSlim236, you’ll need :
+
+
+setupSiRFFlash_3.2.zip (thanks Antineutrino!)
+
+
+
+
+
+Here is a backup of my old Holux V5 firmware (binary, not Motorola format):
+
+
+GSW3.1.1_3.1.00.07-C23B1.00.bin (From SiRFflash, 0x00 to 0x79999)
+
+
+
+
+
+And here is the Holux V6 firmware (binary, not Motorola format):
+
+
+GSW3.2.2_3.1.00.12-SDK003P1.bin (kindly extracted by ‘brio2001’ from foro.todopocketpc.com)
+
+
+
+
+
+And here is the Holux V7 ? firmware (binary, not Motorola format):
+
+
+GSW3.2.4_3.1.00.12-SDK003P1.00a.bin (kindly extracted by ‘tsp’ from gpspassion.com)
+
+
+
+
+
+Note the V6 firmware supposedly has better support for SBAS based DGPS, which is EGNOS for those of us in Europe. Just have to wait until September when the three birds begin transmitting non-test correction data.
+
+
+
+
+
+Note the V7 firmware is extracted from a rev.C board and may cause problems if you flash it to a rev.B board, though at least one user has successfully done so.
+ Monday, 18 June 2007
+ next >
+< previous
+  
+
+Add a Comment  
+9 Comments 
+aaronprez
+I got this to work.  One thing I had to do to get the thing out of Sirf mode and be able to see data in Sirfdemo and have it functional after the upgrade was complete was to reset the device by shorting the battery pins as described in the following article.  http://www.gpspassion.com/forumsen/topic.asp?TOPIC_ID=44809
+
+As for some more detailed instructions, there is a link that has where you can download the upgrade tools (Sirfflash and instructions)  Read through the following forum post and you should be able to figure it out.  http://www.pocketgpsworld.com/modules.php?name=Forums&file=viewtopic&t=42774&start=0
+
+I really wanted this upgrade for a long time, because I wanted WAAS to work.    After I did this upgrade, WAAS actually works when enabled for me here in the Midwest United States.
+Monday, June 25, 2007 - 03:53 PM
+
+Sanj
+I tried to do this v6 upgrade and got a timing error and then a could not programme flash.  Managed to put v5 back on but I'd like to use WAAS.  Any idea what would cause this error ?
+Monday, July 9, 2007 - 03:37 PM
+
+aaronprez
+I have revision B hardware, and I've updated the firmware to 3.2.4 successfully.  Really don't know what is different, but static navigation was enabled by default, which was a little different.  WAAS works, as it did in 3.2.2  Not sure if there is any performance improvements as of now, but I'll post if I notice anything.
+Monday, August 6, 2007 - 10:01 PM
+
+Anonymous
+THAKS TO THIS GREAT TIPS!!
+
+I HAVE UPDATE via BT (with no expensive USB-DATA CABLE!) my HOLUX GPSlim 236 (I belive rev."B" cause It's 2 year old!...but I never open the GPS shell to watch inside!):
+
+from: GSW 3.1.1 firmware to last GSW3.2.4 
+
+Thank you very much!
+In many forum was reported address: http://www.holux.co.uk/ 
+for update .bin file but FOR ME this site is not reachable!
+Thanks again for THIS GREAT TIP!
+Everything is OKEY at first attemp!...no crashing problem for me!
+Ciao
+Ale
+Tuesday, September 18, 2007 - 04:06 PM
+
+Sven
+Hi, just successfully updated my GPSlim 236 (the one that Nav4all.com sells in Europe) to V3.2.4. Seems to have no negative impact if the Hardware is Rev. B.
+Saturday, September 29, 2007 - 05:13 PM
+
+Jonathan
+Hi,
+Thanks so much for posting this information!
+I have a Holux GR-213, which is the USB cousin of the 236, I believe.  I broke my 213 by trying to flash it with SiRFflash 2.15, following Holux's directions.  I thought it was a total los until I found this blog.
+The 213 also has gold boot-mode solder pads, similar to the 236.  They are pretty obvious, once you get inside the unit.  And if you follow the directions here, you can do a flash recovery.  I flashed the 3.2.4 firmware on this page, and it seems to work fine so far.
+That was the hardest part: opening the case.  The 213 has a number of clips holding the halves together, but is also glued!  I was getting nowhere prying and prodding, so I ended up cutting it open with a Dremel.  That worked fine, although the case doesn't look pretty and won't snap back together anymore.  Oh well, it's fine for my purposes.
+I will try to post a link to the pictures soon; maybe someone else with a dead 213 will be successful at prying theirs open.
+Saturday, October 20, 2007 - 12:26 AM
+
+Anonymous
+Hi
+
+I was trying to upgrade my Holux gpsslim 236 to the 3.2.4 firmware
+using siftdemo 3.83 and sirfflash version 2.15.
+I'm using BT in order to connect to the GPS.
+I was able to switch to sirf mode and send the 94 command to the GPS, while trying to flash the gps I'm getting the following error "unable to get target external bus width info".
+
+I would like to add that,I was able to see on the BT software that the sirfflash was able to connect to the GPS.
+
+Do someone has a clue how to solve the problem?
+
+regards,
+Michael
+Saturday, January 5, 2008 - 10:25 PM
+
+Anonymous
+Hello, this ist very new and interessting for holux 236?
+
+http://www.sirf.com/PressRoom/Press.aspx?PressId=147&Home=true
+
+and the ducument: http://www.sirf.com/PressRoom/PRFileDownLoad.aspx?dwfid=147
+
+i hope, we can update soon... thx, Michael
+Sunday, January 6, 2008 - 01:44 PM
+
+Dam Alves
+Hi,
+I've the same Michael problem with "unable to get target external bus width info" error during flash upgrade. Somebody have seen that?
+Thanks in advance,
+
+Dam Alves
+Thursday, April 17, 2008 - 02:18 AM
+
+Add a Comment    

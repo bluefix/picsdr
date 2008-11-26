@@ -1,0 +1,414 @@
+
+
+This is Google's cache of http://www.gpspassion.com/forumsen/topic.asp?TOPIC_ID=25575&whichpage=34. It is a snapshot of the page as it appeared on Nov 12, 2008 17:51:47 GMT. The current page could have changed in the meantime. Learn more
+
+Text-only versionThese search terms are highlighted: sirf uart configuration  
+
+
+     
+   Web www.gpspassion.com 
+        
+
+
+
+ 
+ GpsPasSion LIVE! 
+
+www.NaviBlog.com 
+ 
+
+ 
+
+
+Versions 
+  
+
+Links/Liens 
+News
+Articles
+POIenFrance
+(Radars V+)
+
+Où Commencer?
+Plan et Index
+Le Glossaire  
+
+
+
+
+
+ 
+
+ 
+
+Portal/Portail 
+Rechercher 
+ News Téléchargements Articles Annuaire Images  
+  
+ 
+
+ - del.icio.us  
+
+Polls/Sondages 
+Sondage 
+  Allez-vous acheter un GPS d''''ici fin 2008 ? 
+ Oui, un SEM 
+ Oui, PDA/PDAPhone avec GPS 
+ Oui, pour offrir ! 
+ Non, j'ai déjà un SEM 
+ Non, j'ai déjà un PDA/PDAPhone avec GPS 
+Voter  -  Résultat des votes
+Votes : 889 
+ 
+
+
+Laissez un commentaire 
+Suggestions  
+
+ 
+
+ 
+
+Club GpsPasSion 
+Soutenez le site!
+USA: (US$) 
+EUROPE: (€) 
+
+Guide Paypal
+
+ 
+
+ 
+ GpsPasSion Forums 
+Home | Profile | Register/Enregist. | Active Topics | Search/Recherche | FAQ 
+  Username:
+ Password:
+   
+ Save Password 
+Forgot your Password? 
+
+ 
+ 
+ 
+ All Forums
+ Advanced Topics
+ General Technical Discussions
+ SiRFdemo tutorial (advanced configuration)  New Topic  Reply/Répondre 
+ Printer Friendly  
+ 
+Previous Page | Next Page 
+Author  Topic   Page:  1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 of 37  
+jimmynz
+
+
+New Zealand
+3 Posts
+ Posted - 07/02/2007 :  08:07:49     
+--------------------------------------------------------------------------------
+ 
+Hi all,
+
+I would just like to draw some of your attention to this other thread instead of adding to this thread incase it was considered slightly off-topic...
+
+http://www.gpspassion.com/forumsen/topic.asp?TOPIC_ID=91048
+
+Any input from Carl, GPSPassion and any other veterans in this field would be much appreciated!
+
+Thanks,
+James 
+ 
+ 
+sal.fresco
+
+
+Portugal
+5 Posts
+ Posted - 08/10/2007 :  21:46:12     
+--------------------------------------------------------------------------------
+ 
+Hi everybody!
+
+Sorry if this is a little off-topic, but I'n in despair.
+
+How can I make my GPSlim 236 to work the following way:
+Get NMEA data at 4800bps via the TTL/RS232 port while still get the data via Bluetooth.
+
+I've allready managed to put the RS232 at NMEA 4800, but i've lost Bluetooth. I did it with SIRFdemo and the serial cable, using the menu
+"Set UART configuration" and selected UART 0 to NMEA 4800 and UART 1 to SIRF binary at 57600.
+
+Regards
+
+Sal
+ 
+
+--------------------------------------------------------------------------------
+If it does'nt work...
+...try a bigger hammer! 
+ 
+ 
+saimhe
+
+
+Lithuania
+93 Posts
+ Posted - 08/11/2007 :  00:41:18     
+--------------------------------------------------------------------------------
+ 
+The following are mainly assumptions because I still am afraid to break my GR-236 by opening it the wrong way :)
+
+Apparently the BT modem there works only at 38400, and both the modem and TTL port are wired to the same UART 0 so baudrate change is common for them -- and if the modem can't do baudrate detection like traditional telephone line modems, it won't understand anything from now on.
+
+I know little about these modems so I'll use only BGB203 (made by Philips) as an example. This one has a dedicated baudrate change command, AT+BTURT, and settings can be preserved in internal Flash.
+
+Provided that the modem in GR-236 can also be dynamically configured for different baudrate, the reason of "only 38400 bps" may be simple OEM laziness, that is, Holux did not add the corresponding code to the GSC3f.
+
+The ideal scenario:
+
+1. Open the unit and identify the modem.
+2. Find its datasheet (at least the part that describes SPP operation) and confirm the possibility of baudrate change.
+3. Disconnect modem's TX and RX from remaining circuitry.
+4. Hook up TTL/RS232 from a computer to them (a level converter is required).
+5. The modem may already accept commands while the RF link is down. Otherwise you must switch to command mode, which usually involves some software protocol or activating a hardware pin. The datasheet should explain that.
+6. Play a bit with the modem according to the datasheet :)
+
+Yes, it involves disassembly and soldering. If the modem and the USB socket are really wired to the same UART, that effectively prevents configuring the modem via the serial cable. Just look at a typical wiring solution:
+
+
+BT-TX ------+
+            (wired-)AND ---->-- GSC3-RX
+USB-TX ---- +
+
+BT-RX ---------+------------<-- GSC3-TX
+               |
+USB-RX --------+
+A permanent fix might require a couple of logic gates and some luck. 
+ 
+ 
+Allycat
+
+
+United Kingdom
+56 Posts
+ Posted - 08/14/2007 :  11:45:20     
+--------------------------------------------------------------------------------
+ 
+Hi Sal,
+
+Saimhe seems to have explained the difficulty well; there are just a few comments that I can add:
+
+I believe the firmware is actually written by SiRF and Carl has explained earlier in this (long!) thread what the serial port(s) can and cannot do.
+
+There are at least two versions of the Holux circuit board / hardware, so your version number might be important.
+
+Do you definitely need to run the wired port at 4800 baud? If it is for a program that runs on the PC (or PPC?) then you may be able to use "gpsgate" to convert the baud rate, as described here:
+
+http://www.gpspassion.com/forumsen/topic.asp?TOPIC_ID=30704
+
+Cheers, Alan.
+
+ 
+ 
+ 
+sal.fresco
+
+
+Portugal
+5 Posts
+ Posted - 08/15/2007 :  01:12:07     
+--------------------------------------------------------------------------------
+ 
+Hi!
+
+The wired use is not via PC or PPC.
+It is to use with a "tracker" wich will be used with my Ham Radio, in Search & Rescue operations, to track me when i'm out on the field running, etc.
+
+The software on the tracker does not allow NMEA data at other rate than 4800. I've allready mailed the author, and he did a "special version" but with no results. So i'm back to re-programming the GPS unit.
+
+Thanks to all that answered.
+
+
+Regards
+
+Sal 
+
+--------------------------------------------------------------------------------
+If it does'nt work...
+...try a bigger hammer! 
+ 
+ 
+sal.fresco
+
+
+Portugal
+5 Posts
+ Posted - 08/15/2007 :  01:17:46     
+--------------------------------------------------------------------------------
+ 
+Sorry!
+
+Forgot to put the revision # of the board
+GPSlim236 Rev B
+2005.05.02
+
+
+reagrds 
+
+--------------------------------------------------------------------------------
+If it does'nt work...
+...try a bigger hammer! 
+ 
+ 
+scalor
+
+
+2 Posts
+ Posted - 08/30/2007 :  20:48:37     
+--------------------------------------------------------------------------------
+ 
+I have a mainnav mg910s bluetooth gps receiver, i have a problem , i can't switch from NMEA to sirf protocol, someone has successful to do this ?
+
+thanks for the answer 
+ 
+ 
+danreetz
+
+
+2 Posts
+ Posted - 09/13/2007 :  16:48:30     
+--------------------------------------------------------------------------------
+ 
+Hello. 
+
+I have a Holux GPSlim 240. I've managed to hook it up to my serial port by soldering some connections inside and using a level shifter. 
+
+I would like to do two things. 
+
+1. Set the default baud rate to 4800, such that removing the battery won't reset it -- I want the unit to "wake up" in NMEA mode. 
+
+2. Disable the bluetooth radio (possibly permanently). I don't use it anyway.
+
+Can I do this using SirfDemo or SirfFlash? If not, what tools should I use? 
+ 
+ 
+saimhe
+
+
+Lithuania
+93 Posts
+ Posted - 09/16/2007 :  15:16:37     
+--------------------------------------------------------------------------------
+ 
+The best way to disable BT permanently is to desolder it :) (of course if the main goal is extended battery life)
+
+Cutting power _and_ ground is also an option (input protection diodes shouldn't interfere afterwards if there is no corresponding reference voltage). If the modem is on a separate piece of PCB, it might be easier to remove the board instead. 
+ 
+ 
+danreetz
+
+
+2 Posts
+ Posted - 09/24/2007 :  21:39:44     
+--------------------------------------------------------------------------------
+ 
+saimhe, thanks. i'll try desoldering the board, as it is not obvious where or what pin has the power/ground connections. 
+ 
+ 
+Carl@SiRF
+
+
+USA
+157 Posts
+ Posted - 09/25/2007 :  01:38:10     
+--------------------------------------------------------------------------------
+ 
+To Danreetz: setting up the software so its default baud rate is 4800 requires that you get a build of the software that sets that default and program it in using SiRFFlash. The battery-backed RAM holds any settings you make beyond the defaults, and that is lost when you lose the battery. The defaults themselves must be set in the software at compile time. Unless you can get your manufacturer to give you a new build, there is no other way.
+
+Why not get a receiver without the BT to do this? Then you won't have to throw away half the package? I know the GPS is the "best" part of the unit, but ... 
+
+--------------------------------------------------------------------------------
+Carl - SiRF Customer Support 
+ 
+ 
+trollianer
+
+
+3 Posts
+ Posted - 10/17/2007 :  23:46:20     
+--------------------------------------------------------------------------------
+ 
+Hi all!
+
+After a week of reading through fora and installing tons of new software, I'm desperate. 
+I'm trying to deactivate Static Navigation on my Navibe GM732 Bluetooth GPS Receiver. Using aplsirf on my PocketPC or sirfdemo on my PC I can switch to SIRF mode, and deactivate SN. A status request shows, that SN is off. Also (in sirfdemo) I can see that small velocities are displayed as well as a changing heading if SN is off, both values go to zero if SN is on. 
+So far so good, but when I switch back to NMEA mode, I have the same problem as before, velocities below 6 km/h are not shown. 
+Back to SIRF Mode again the receiver seemed to have remembered my SN-setting. 
+
+Does anyone have a clue what I could do to deactivate SN in NMEA mode? Or is this receiver just not usable for hiking/geocaching? 
+
+Or else, is there a program for the PPC that translates SIRF Code to NMEA Code and writing it to a virtual COM port?
+
+Cheers,
+Trollianer 
+ 
+ 
+Allycat
+
+
+United Kingdom
+56 Posts
+ Posted - 10/18/2007 :  00:14:53     
+--------------------------------------------------------------------------------
+ 
+Hi Trollianer,
+
+I think you will find SN is off, but it's a bug/feature of the SiRF NMEA protocol (which depends on the exact manufacturer's build). Take a look at my thread below, although I never got a satisfactory response from SiRF:
+
+http://www.gpspassion.com/forumsen/topic.asp?TOPIC_ID=82799
+
+If this is also your problem, then it looks as if nothing can be done, because it's embedded in the firmware.
+
+Cheers, Alan. 
+ 
+ 
+Carl@SiRF
+
+
+USA
+157 Posts
+ Posted - 10/18/2007 :  02:03:42     
+--------------------------------------------------------------------------------
+ 
+If you switch back to binary and the static nav setting is still turned off, your problem is not static nav. Under some situations the velocity will be set to zero in the reporting. These conditions are, generally, when the receiver is using less than 4 satellites, or some other type of degraded nav solution. I seem to recall some earlier versions that zeroed out NMEA velocity when it was below a threshold since velocity tends to get quite unreliable below some arbitrary limit. I checked our latest code and could not find that setting in it, but there is a nagging in the back of my head of earlier versions that did that. 
+
+--------------------------------------------------------------------------------
+Carl - SiRF Customer Support 
+ 
+ 
+Allycat
+
+
+United Kingdom
+56 Posts
+ Posted - 10/18/2007 :  04:26:18     
+--------------------------------------------------------------------------------
+ 
+Hi Carl,
+
+Well, the NMEA "zeroing" is still there with Holux's 3.2.4 firmware! (although with a somewhat lower threshold than in the original version). And I think I've seen it even with good GPS reception (note the other complaint at the foot of my thread, when 12 satellites are "visible").
+
+But why is it present only in the NMEA protocol, and when (optional) Static Navigation is available to do the job properly, if the user really wants to mask "unreliable" data?
+
+Cheers, Alan. 
+ 
+ 
+ Page:  1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 of 37   Topic    
+ 
+ 
+Previous Page | Next Page 
+ New Topic  Reply/Répondre 
+ Printer Friendly  Jump To:  Select Forum News - www.ProfessionGPS.com       Offres de stage et/ou d'emploi       Les News GPS et Mobilité temp       Version "Plus" - lien G pour inscrits >25/01/05 Général       Questions Générales       Les Supports et Chargeurs Voiture pour PDA et GPS       Autour des PDAs, des SEMs WinCE et des PCs       Bonnes Affaires...Mauvaises Affaires       Achat/Vente       Sondages       Commentaires/Suggestions pour le Site et le Club       Divers       ** Plan du site **       Version Francaise du Portail Les Logiciels de Navigation GPS       Logiciels de Navigation Tout Terrain       GPS sur Smartphone (on-board et off-board)       GPS sur PC Portable       Logiciels de Navigation Routière pour PDA Les Récepteurs GPS       Récepteurs GPS pour PDA et PC       GPS Portables Autonomes       Systèmes GPS Sport English Forums - General       GPS and Mobile News       Polls       PDA and PC Support       General Questions and Discussions       * Partner Forums *       Miscellaneous       Questions or Comments about the Site       Buy & Sell       Hot Deals....Cold Deals       * Personalized Assistance * Systèmes Embarqués et Autonomes et Kits PDA       Discussions Générales - Comparatifs/Choix       PDAs et PDAPhones avec GPS intégré       Systèmes Fixes       Systèmes Mobiles - Mixtes       Systèmes Mobiles - Route       TomTom GO, ONE, RIDER - www.GOtomtom.com       Systèmes Mobile Route - Garmin       Systèmes GPS avec Logiciel Navigon       SEMs Mio - www.mionav.com       ViaMichelin X-930, X-950T, X-960, X-970T, X-980T - www.X9x0.com English Forums - Hardware       GPS Receivers for PDAs and PCs       PDAs and PDAPhones with built-in GPS       Sports GPS Systems       Handheld Portable GPS Receivers       AIO (All in One) Comparisons - Choices       "All in One" Navigation Systems       Garmin Advanced Navigation Systems       Garmin nüvi forums       Garmin iX, C3x0 and C5x0 Navigation Systems       Garmin SP26xx/27xx/7x00 Navigation Systems       Lowrance iWay family (250c,350c,500c,600c and XOG)       Magellan Roadmate and Maestro AIOs       Mio AIO Forums - www.mionav.com       Packard Bell - GPS 400/Compasseo       TomTom AIO Forums - www.GOTomTom.com Forums "Autour du GPS"       GPS Datalogger, Geotagging et Trackers Temps Réel       Discussions Techniques Générales       Cartes et Outils Cartographiques en Ligne       Infos Trafic en temps réel (TMC)       TomTom PLUS et Navman NavPix Les utilisations GPS particulières       Navigation Aéronautique       GPS et Moto, Vélo, Quad et apparenté English Forums - Software       PDA Navigation Software       "Off-Road" GPS Software       Other PocketPC GPS based software       Laptop and UMPC Road Navigation       MS Streets and Trips, AutoRoute, and MapPoint Programmation GPS et Logiciels en "Beta"       Logiciels GPS (et autres) en "Beta"       Notions Générales       VB .NET       C# .NET       eVB       C++       PalmOS www.POInUSA.com - Sharing Custom POIs       Custom POI "Collections"       Suggest a "collection"       Questions and Answers Advanced Topics       General Technical Discussions       GPS Dataloggers and Geocoding       Live GPS Tracking Systems       Traffic Information (TMC)       Maps and POIs Communauté GpsPasSion       * Assistance Personnalisée - Lien Unique *       Section "pas de hors sujet"       * Offres Spéciales GpsPasSion *       Nouveaux RM Vérifiés GPS Programming       Programming Hints and Tips       "Beta" GPS software Smartphone GPS       GPS on Smartphones Forums NAVIGON - NAVIGON Forums       English Forums       News       Questions et Réponses MN|5 et MN|6       Feedback MN|5 et MN|6       Navigon Bluemedia - www.bluenav.com       Communauté NAVIGON www.POIenFrance.com sur GpsPasSion       P R E S E N T A T I O N       Index des Collectes et Tutoriaux       Les POIs Partenaires       ** Hôtels B&B **       Les Collectes de POIs sur GpsPasSion       Propositions de Collecte       Collectes Archivées       www.radarsenfrance.com sur GpsPasSion       POIs : News, Questions et Réponses www.radarsenfrance.com       P R E S E N T A T I O N       Radars : News, Questions & Réponses       Version "standard"       Questions Techniques       Divers       Version "Plus" - Lien Unique Seidio Official Forums       Seidio Website/Site Web Seidio       Seidio English Forums Mapopolis Official Forum       Mapopolis Website       News       Questions       Wishlist       User Community       Beta Testing       Forums Francais - French Forums Semsons Official Forums       Semsons Website       News       GPS software       GPS Hardware  -------------------- Home Active Topics Frequently Asked Questions Member Information Search Page  
+ 
+GpsPasSion Forums © 2002-2008_GpsPasSion/Manzanite  
+ 
+This page was generated in 2,25 seconds.  
+ 

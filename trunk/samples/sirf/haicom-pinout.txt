@@ -1,0 +1,51 @@
+
+http://osdir.com/ml/hardware.gps.gpsd.devel/2005-07/msg00123.html
+
+I have Haicom HI-202E GPS module, it is HI-203E with serial/USB adaptor based
+on PL2303 chip. As Linux driver for PL2303 cannot handle shutdown of gpsd very
+well (system hangs often), I decided to create adaptor for RS232 port.
+
+Haicom HI-203E GPS has mini DIN (6 pin) PS/2 male connector on the cable; the
+same connector as used on PS/2 keyboards.
+
+Here is pinout of HI-203E:
+1 GND [4]
+2 VCC (3.8-8.0 VDC, unregulated) [3]
+3 1PPS (RS232 output from GPS) [6]
+4 RX (RS232 input to GPS) [2]
+5 TX (RS232 output from GPS) [1]
+6 1PPS valid (RS232 output from GPS) [5]
+
+Number in [] bracket is pin at module connector as described in EverMore
+documentation of GM-X205, page 10. HI-203E uses SIPEX SP385E convertor and
+signals at PS/2 mini DIN connector are at RS232 voltage level, it is "easy" to
+create RS232 serial adaptor.
+
+This is schematic of RS232 adaptor:
+
+DB9 male PS/2 female
+TX 3 ---------- 4 RX
+RX 2 ---------- 5 TX
+DCD 1 ---------- 3 1PPS
+? ---------- 6 1PPS valid
+GND 5 ---+------ 1 GND
+DTR 4 | +--- 2 VCC
+DSR 6 | |
+RTS 7 | |
+CTS 8 | +- VCC (4-8 VDC)
+RI 9 +---- GND
+
+Is there any recomandation for signals 1PPS and 1PPS valid? I guess that 1PPS
+will connect to DCD. 
+What about 1PPS valid?
+Is 1PPS signal used by gpsd?
+
+With regards,
+Petr
+
+
+---------------------------------
+Petr Slansky, slansky@xxxxxxx
+---------------------------------
+
+

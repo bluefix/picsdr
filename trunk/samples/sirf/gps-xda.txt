@@ -1,0 +1,346 @@
+http://forum.xda-developers.com/showthread.php?t=336328&page=41
+
+
+   xda-developers > General discussion > Upgrading, Modifying and Unlocking  
+ FSC T830  
+ User Name  Remember Me? 
+Password   
+      
+
+ Register FAQ XDA-Portal XDA-Wiki Device database Donate! Members List Calendar Today's Posts Search   
+
+
+
+Search Forums using Google 
+      
+
+
+Or use the built-in forum search  
+
+Go to Page... 
+   
+ Page 41 of 106 « First < 31 39 40 41 42 43 51 91 > Last »   
+ 
+   Thread Tools   Search this Thread   Display Modes   
+
+  #401    30-03-2008, 12:12 AM  
+Jussi77  
+Member   Join Date: Jun 2006
+Posts: 49  
+ 
+ more testing in gps fw 
+
+--------------------------------------------------------------------------------
+
+I did some additional testing of N560's gps firmware v3.2.2.. I hexedited COM8 to COM6 in htcgpsupdate.exe and signed the file again with signtool. Now it starts and green led is blinking (informing it's accessing gps port) but it still fails with error #3.
+
+
+any news on wm6.1 new beta release  ?
+  
+
+Jussi77 
+View Public Profile 
+Find all posts by Jussi77 
+
+Sponsored Links 
+ 
+
+  #402    30-03-2008, 03:38 AM  
+A4E  
+Junior Member   Join Date: Jan 2008
+Posts: 7  
+ 
+ 
+
+--------------------------------------------------------------------------------
+
+hey guys, i need some help
+what could mean "i/o error 105" in g'reloc? anybody knows? how to solve?
+  
+
+A4E 
+View Public Profile 
+Find all posts by A4E 
+
+Sponsored Links 
+ 
+
+  #403    30-03-2008, 05:21 AM  
+Rob2222  
+Member   Join Date: Feb 2008
+Posts: 38  
+ 
+ 
+
+--------------------------------------------------------------------------------
+
+Jussi:
+Have you set the serial port to SIRF mode, f.e. with sirftech, before trying? But I even dont know, if Sirf Mode is the right mode for firmware upgrade, but it is worth a try, maybe.
+
+EDIT: I disassembled the updater and it looks like, error (3) indicates, that it still looks for com8. Could you upload me you latest updater fileset? And maybe PM me your MSN/ICQ/YAHOO address?
+
+Another approach could be so set a virtual com8 that is mapped to com6.
+
+BR Robert
+
+--------------------------------------------------------------------------------
+Last edited by Rob2222; 30-03-2008 at 05:58 AM. 
+  
+
+Rob2222 
+View Public Profile 
+Find all posts by Rob2222 
+
+Sponsored Links 
+ 
+
+  #404    30-03-2008, 09:40 AM  
+A4E  
+Junior Member   Join Date: Jan 2008
+Posts: 7  
+ 
+ 
+
+--------------------------------------------------------------------------------
+
+WM 6 wm6fsc beta 3 RUS (mui) version by A4E
+
+http://rapidshare.com/files/103458159/MDOC.DIO.html
+  
+
+A4E 
+View Public Profile 
+Find all posts by A4E 
+
+Sponsored Links 
+ 
+
+  #405    30-03-2008, 11:01 AM  
+Jussi77  
+Member   Join Date: Jun 2006
+Posts: 49  
+ 
+ @Rob2222 
+
+--------------------------------------------------------------------------------
+
+Quote:
+Originally Posted by Rob2222  
+Jussi:
+Have you set the serial port to SIRF mode, f.e. with sirftech, before trying? But I even dont know, if Sirf Mode is the right mode for firmware upgrade, but it is worth a try, maybe.
+
+EDIT: I disassembled the updater and it looks like, error (3) indicates, that it still looks for com8. Could you upload me you latest updater fileset? And maybe PM me your MSN/ICQ/YAHOO address?
+
+Another approach could be so set a virtual com8 that is mapped to com6.
+BR Robert 
+
+Yup, I tried to set the port to sirf mode with sirftech but it does not help, I also
+tried registry editing com port enumeration and successfully managed to change COM6 to COM8 (and COM8 to COM6) but the error 3 still showed up..
+
+here's the fileset I tried to execute (copy to \windows\ directory first). htcgpsupdate.exe is signed with developer test cert.
+Attached Files gpsup.zip (493.1 KB, 21 views) 
+ 
+  
+
+Jussi77 
+View Public Profile 
+Find all posts by Jussi77 
+
+Sponsored Links 
+ 
+
+  #406    30-03-2008, 01:25 PM  
+Rob2222  
+Member   Join Date: Feb 2008
+Posts: 38  
+ 
+ 
+
+--------------------------------------------------------------------------------
+
+A4E:
+
+Would you be so nice to describe the steps that are nessecary to make a other-than-english language rom?
+
+BR Robert
+  
+
+Rob2222 
+View Public Profile 
+Find all posts by Rob2222 
+
+Sponsored Links 
+ 
+
+  #407    30-03-2008, 01:49 PM  
+A4E  
+Junior Member   Join Date: Jan 2008
+Posts: 7  
+ 
+ 
+
+--------------------------------------------------------------------------------
+
+it is said in http://forum.xda-developers.com/showthread.php?t=311078
+U should have the imgfs_tools ver 2.0 rc2 or older
+p.s. U should use "square" bin from emu, not others
+
+--------------------------------------------------------------------------------
+Last edited by A4E; 30-03-2008 at 01:51 PM. 
+  
+
+A4E 
+View Public Profile 
+Find all posts by A4E 
+
+Sponsored Links 
+ 
+
+  #408    30-03-2008, 02:42 PM  
+zino78  
+Junior Member   Join Date: Mar 2008
+Posts: 2  
+ 
+ loox t830 was died 
+
+--------------------------------------------------------------------------------
+
+Hi!
+
+I bought a T830. It has a 1.09 english firmware. I want to update the firmware. I download the 1.12 firmware, and i try install it. But it doesnt work  The phone said "the phone is blue" and emp failed or something. After it, i try to install with usb-download mode other images, but it doesent work too. One of tehm start but others not. After 4-5 firmware update the t830 was died. I cant switch on and i can switch it to usb download mode. Is tehere any possibiliti to repair it at home, or i must bring it to the service.
+If i can rapair it at home, please help me  and if someone have a "blue" compatible wm5 imaga please send me.
+
+Thanks, and sorry my poor english!
+
+Zino78
+  
+
+zino78 
+View Public Profile 
+Find all posts by zino78 
+
+Sponsored Links 
+ 
+
+  #409    30-03-2008, 06:46 PM  
+Rob2222  
+Member   Join Date: Feb 2008
+Posts: 38  
+ 
+ 
+
+--------------------------------------------------------------------------------
+
+Jussi:
+
+I get a little forward. The thing about packting the updater is, that we first need to check, if the flash chip for the gps firmware in the n560 and t830 is the same. It would be good if we find any pictures of both disassembled phones or infos about the flash chips.
+If you download Sirfflash package you can see which flash ships are often used.
+
+If we could manage to connect real-COM6 from T830 to a PC, we could use Sirfflash to backup our 3.1.1 firmware.
+
+Here a guy wants to do the same:
+http://www.gpspassion.com/forumsen/t...OPIC_ID=106847
+
+With GPS2Blue
+http://users.skynet.be/hofinger/GPS2Blue.html
+You can map the T830 GPS port to a virtual pc port. This works well in NMEA and Sirfmode and you can use SirfDemo with that.
+But when you put the sirf chip in boot mode to read/write the firmware flash the program crashes. 
+I think the problem is that G2B only map GPS data, not ALL data.
+So a tool that maps all data between the ports would be nice.
+
+Some infos I've found:
+Infos about flash procedure:
+http://www.koders.com/c/fidD3E36DEED...0355E5CA5.aspx
+
+SirfFlash and SirfDemo:
+http://www.falcom.de/support/software-tools/sirf/
+
+Sirf protocol documentation:
+http://www.falcom.de/support/documentation/sirf/
+
+
+BR Robert
+  
+
+Rob2222 
+View Public Profile 
+Find all posts by Rob2222 
+
+Sponsored Links 
+ 
+
+  #410    30-03-2008, 09:58 PM  
+Jussi77  
+Member   Join Date: Jun 2006
+Posts: 49  
+ 
+ @Rob2222 
+
+--------------------------------------------------------------------------------
+
+Yes - I found also those flash-ID's from htcgpsupdate.exe... but I thought I could monitor COM6 traffic with some utility to see what kind of protocol is being used, ie.
+
+<request> $PSRF....... ( to get flash info)
+<response> something_not_expected (flash info)
+<operation> compare to in-memory strings, if not found, terminate with #3
+
+I was figuring that if I can read that "something_not_expected" I could replace some
+flash-ID strings in htcgpsupdate and it *could* work (it could also corrupt flash 
+
+I have no problem opening t830 if I must but it would be nicer if flash could be backed-up and then restored if everything goes *borked*
+  
+
+Jussi77 
+View Public Profile 
+Find all posts by Jussi77 
+
+Sponsored Links 
+ 
+
+ Page 41 of 106 « First < 31 39 40 41 42 43 51 91 > Last »   
+ 
+
+
+« Previous Thread | Next Thread » 
+
+
+Thread Tools 
+ Show Printable Version 
+ Email this Page 
+
+Display Modes 
+ Linear Mode 
+ Switch to Hybrid Mode 
+ Switch to Threaded Mode 
+
+Search this Thread 
+    
+ 
+Advanced Search 
+
+ Posting Rules  
+You may not post new threads
+You may not post replies
+You may not post attachments
+You may not edit your posts
+
+--------------------------------------------------------------------------------
+
+BB code is On
+Smilies are On
+[IMG] code is On
+HTML code is Off 
+   Forum Jump
+  User Control Panel Private Messages Subscriptions Who's Online Search Forums Forums Home   General discussion     About xda-developers.com     General     Questions and answers     Upgrading, Modifying and Unlocking     Accessories     Networking     Development and Hacking     Off-topic Wallaby     Wallaby     Wallaby upgrading etc.     Wallaby accessories Blue Angel     Blue Angel     Blue Angel upgrading etc.     Blue Angel accessories     Blue Angel Mobile 6 Himalaya & Andes     Himalaya & Andes     Himalaya upgrading etc.     Himalaya accessories     Windows Mobile 2005     Himalaya Mobile 6 Alpine     Alpine     Alpine upgrading etc.     Alpine accessories Magician     Magician     Magician upgrading etc.     Magician accessories Wizard     Wizard     Wizard upgrading etc.     Wizard accessories     G4     Wizard Mobile 6 Universal     Universal     Universal upgrading etc.     Universal accessories     Universal Mobile 6 Prophet     Prophet     Prophet upgrading etc.     Prophet accessories     G4     Prophet mobile 6 Atom     Atom     Atom upgrading etc     Atom accessories     Atom mobile 6 Apache     Apache     Apache upgrading etc.     Apache accessories Charmer     Charmer     Charmer upgrading etc.     Charmer accessories     Charmer mobile 6 Hermes     Hermes     Hermes upgrading etc.     Hermes accessories     Hermes Mobile 6 Trinity     Trinity     Trinity upgrading etc.     Trinity accessories     Trinity Mobile 6 Artemis     Artemis     Artemis upgrading etc.     Artemis accessories     Artemis mobile 6 Palm Treo 750     Palm Treo 750     Palm Treo 750 upgrading etc.     Palm Treo 750 accessories Palm Treo Pro     Palm Treo Pro     Palm Treo pro upgrading etc.     Palm Treo Pro accessories Herald     Herald     Herald ROM development     Herald accessories     Herald mobile 6 Athena     Athena     Athena upgrading etc.     Athena accessories     Athena mobile 6     X7510 Kaiser     Kaiser general     Kaiser accessories     Kaiser software     Kaiser ROM development Elf     Elf     Elf upgrading etc.     Elf accessories Vogue     Vogue     Vogue upgrading etc.     Vogue accessories Nike     Nike     Nike upgrading etc.     Nike accessories Diamond     Diamond     Diamond ROM development     Diamond accessories     Themes, Applications and Software Opal     Opal     Opal ROM development     Opal accessories Blackstone     Blackstone     Blackstone ROM development     Blackstone accessories Dream     Dream     Dream android development     Dream accessories     Dream themes and applications Polaris     Polaris     Polaris upgrading etc.     Polaris accessories Titan     Titan     Titan upgrading etc.     Titan accessories Gene     Gene     Gene upgrading etc.     Gene acessories Pharos     Pharos     Pharos ROM development     Pharos accessories Juno     Juno     Juno ROM development     Juno accessories Sedna     Sedna     Sedna ROM development     Sedna accessories Shift     Shift     Shift upgrading etc.     Shift accessories Raphael     Raphael     Raphael CDMA     Raphael ROM development     Raphael software     Raphael accessories Rose     Rose     Rose ROM development     Rose accessories Jade     Jade     Jade ROM development     Jade accessories Smartphones     Oxygen     StarTrek     Monet     Excalibur     Breeze     Typhoon     Hurricane     Tornado     Vox     Wings     Cavalier     Smartphone general Other HTC manufactured phones     Sable     Beetles Sony Ericsson Xperia X1     Sony Ericsson Xperia X1     Sony Ericsson Xperia X1 ROM development     Sony Ericsson Xperia X1 accessories Special boards     News service     XDA-developer encylopedia     trash   
+ 
+
+
+
+All times are GMT +2. The time now is 03:35 PM.
+
+
+Contact Us - xda-developers - Archive - Top  
+
+
+Powered by vBulletin® Version 3.7.0
+Copyright ©2000 - 2008, Jelsoft Enterprises Ltd. 
