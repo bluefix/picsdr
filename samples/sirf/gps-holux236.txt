@@ -1,0 +1,162 @@
+http://209.85.173.132/search?q=cache:58YEWd3a5WkJ:www.pocketgpsworld.com/gr236.php+holux+236+chipset&hl=en&ct=clnk&cd=2&gl=us
+
+Holux GPSlim GR-236 Review 10th July 2005  
+ 
+Review by Darren Griffin 
+
+ 
+
+
+Holux GPSlim (GR-236) SiRFStarIII Bluetooth Receiver
+
+Globalsat were first to market with a SiRFStarIII receiver, the BT338 but at last there is competition arriving. Holux have produced the GPSlim GR-236, a smart looking SiRFStarIII receiver that has a number of unique features including a user replaceable battery and the option of using it in USB Mouse mode with an accessory cable available as an optional extra.
+
+ 
+
+Holux UK have kindly supplied a unit for review and here we'll discuss how it measures up.
+
+ 
+
+
+
+GR236 second from left
+
+  
+
+SiRFStarIII Chipset
+
+I don't want to labour on about how big a milestone the launch of the SiRFStarIII Chipset was because it has been done to death many times already. But I will say that if you are considering a GPS purchase then you should not consider any other chipset. The performance improvement is massive and makes a GPS system very much more usable as a result. The time to first fix (TTFF) and high sensitivity of this chipset makes use practical in areas such as inner cities, when worn around your neck on a lanyard with a smart phone solution and any other use where marginal reception conditions make it difficult for other lesser chipset's to function.
+
+ 
+
+What's In The Box?
+
+The box was surprisingly heavy. Inside it is easy to see why as in addition to the receiver and a separately packaged battery, Holux bundle a two pin 240v charger with a collection of plug adapters allowing you to re-charge the unit in most of the power outlets that exist world-wide today and a cigarette lighter charger. Also provided is a CD with PC drivers, a manual in Acrobat format and a PC utility for viewing the GPS signal.
+
+ 
+
+
+Box Contents 
+
+ 
+
+The receiver itself is small and compact, slightly larger than a box of matches. There is a lanyard attachment at the top, a mini USB connector at the bottom for charging and connection to other devices via an optional cable and an MMCX external antenna socket on the left hand side together with the ON/OFF switch.
+
+ 
+
+ 
+
+ 
+
+ 
+
+On the top are three large LEDs which indicate whether a GPS fix has been acquired, Bluetooth status and battery low.
+
+ 
+
+
+
+The lanyard attachment 
+
+ 
+
+In Use
+
+Bonding was a typically painless experience, Holux use the almost default 0000 passkey and within 20 seconds I has a fix from a cold start.
+
+ 
+
+
+GR236 
+
+ 
+
+The above screen shot shows the signal level taken from my living room, other non-SiRFStarIII receivers won't get a lock at all from this location, the best may see one or maybe two satellites but at a very low signal level.
+
+ 
+
+
+BT338
+
+ 
+
+The above is the signal level reported by the GlobalSat BT338 from the same location, although it too has acquired a fix you can see that the signal levels for the satellites it cans see are markedly lower.
+
+ 
+
+EGNOS/WAAS
+
+Although the GPSlim is EGNOS/WAAS capable I have been unable to test it.
+
+ 
+
+Battery Life
+
+A huge plus of this receiver is the hardware ON/OFF switch. Some users are keen to install their Bluetooth GPS in a remote location in the vehicle, hidden under the rear parcel shelf for example. Many current receivers have 'Soft' ON/OFF switches which makes them unsuitable but with the GR236, if it is supplied with an ignition controlled power feed then it will switch ON/OFF with the ignition if its power switch is left ON.
+
+ 
+
+
+Bottom view with battery removed
+
+ 
+
+The GR236 has a replaceable Li-ion battery. Although only an 850mAh type it ran during tests for a shade over ten hours before expiring. External power is supplied via the mini USB connector.
+
+ 
+ 
+
+ 
+
+Conclusion
+
+This has become my Bluetooth GPS of choice ever since I first began using it. I thought I could never again be amazed at the places a SiRFStarIII receiver would work in yet the GPSlim 236 once again sets new boundaries in terms of performance.
+
+ 
+
+It is a well designed unit, small and light and sits nicely on the dashboard thanks to its rubber feet although I have taken to throwing mine in the glove box or even leaving it in my briefcase where it works just as well! I've given it 99% because nothing can genuinely be 100% perfect and it would be nice to have the Mouse USB cable included but that really is nit picking in the extreme. I can thoroughly recommend this receiver. 
+
+Pros
+
+Supports both EGNOS and WAAS 
+Battery lasts ten hours 
+SiRFStarIII 
+Hardware Power Button 
+Ability to convert to Mouse mode 
+
+Cons
+
+To use Mouse mode a specific USB cable must be purchased 
+No paper manual 
+
+
+ 
+
+ 
+
+References
+  
+Manufacturers Web site http://www.holux.com/.tw 
+Review supplier http://www.holux-uk.com 
+Pocket GPS Contributor Darren Griffin  
+Pocket GPS Contributor Web site http://www.armtechnology.co.uk 
+    
+Rating   
+Construction  
+Installation  
+Usability  
+Robustness   
+  
+Performance   
+    
+Overall Rating 99%  
+How did we achieve these ratings ? Review Ratings 
+    
+ 
+
+ 
+
+Comments ?
+
+Have any comments about this review ? Post them here.
+ 

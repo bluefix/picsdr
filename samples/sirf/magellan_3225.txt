@@ -1,0 +1,569 @@
+http://209.85.173.132/search?q=cache:wZpJeF6rH0oJ:www.gpspassion.com/forumsen/topic.asp%3FTOPIC_ID%3D102769%26whichpage%3D6+magellan+3225+serial&hl=en&ct=clnk&cd=9&gl=us
+
+
+
+
+This is Google's cache of http://www.gpspassion.com/forumsen/topic.asp?TOPIC_ID=102769&whichpage=6. It is a snapshot of the page as it appeared on Nov 16, 2008 21:05:25 GMT. The current page could have changed in the meantime. Learn more
+
+Text-only versionThese search terms are highlighted: magellan 3225 serial  
+
+
+     
+   Web www.gpspassion.com 
+        
+
+
+
+ 
+ GpsPasSion LIVE! 
+
+www.NaviBlog.com 
+ 
+
+ 
+
+
+Versions 
+  
+
+Links/Liens 
+News
+Articles
+POIenFrance
+(Radars V+)
+
+Où Commencer?
+Plan et Index
+Le Glossaire  
+
+
+
+
+
+ 
+
+ 
+
+Portal/Portail 
+Rechercher 
+ News Téléchargements Articles Annuaire Images  
+  
+ 
+
+ - del.icio.us  
+
+Polls/Sondages 
+Sondage 
+  Allez-vous acheter un GPS d''''ici fin 2008 ? 
+ Oui, un SEM 
+ Oui, PDA/PDAPhone avec GPS 
+ Oui, pour offrir ! 
+ Non, j'ai déjà un SEM 
+ Non, j'ai déjà un PDA/PDAPhone avec GPS 
+Voter  -  Résultat des votes
+Votes : 953 
+ 
+
+
+Laissez un commentaire 
+Suggestions  
+
+ 
+
+ 
+
+Club GpsPasSion 
+Soutenez le site!
+USA: (US$) 
+EUROPE: (€) 
+
+Guide Paypal
+
+ 
+
+ 
+ GpsPasSion Forums 
+Home | Profile | Register/Enregist. | Active Topics | Search/Recherche | FAQ 
+  Username:
+ Password:
+   
+ Save Password 
+Forgot your Password? 
+
+ 
+ 
+ 
+ All Forums
+ English Forums - Hardware
+ Magellan Roadmate and Maestro AIOs
+ Unlocking Magellan Maestro series  New Topic  Reply/Répondre 
+ Printer Friendly  
+ 
+Previous Page | Next Page 
+Author  Topic   Page:  1 2 3 4 5 6 7 8 9 10 11 of 11  
+xdanx
+
+
+20 Posts
+ Posted - 02/20/2008 :  07:18:43     
+--------------------------------------------------------------------------------
+ 
+quote:
+--------------------------------------------------------------------------------
+Originally posted by mackmain
+
+
+quote:
+--------------------------------------------------------------------------------
+Originally posted by xdanx
+
+@mackmain
+
+What kind of modification have you done in the apps folder? Do you mind sharing your files?
+
+--------------------------------------------------------------------------------
+
+
+
+Here is the link of all i have put in my GPS.
+
+Some things only work in Mio GPS but you can make changes if you want.
+
+http://rapidshare.com/files/93251345/Alterado.rar.html
+
+
+
+
+--------------------------------------------------------------------------------
+
+
+
+I followed your instructions but it doesn't work. I changed Navigator.exe to MyNavigator.exe. Mio Navigator.exe and Softbutton run at startup but I can only see Softbutton with a blank screen. Navigator.exe is running in the background but it doesn't show. 
+ 
+ 
+mackmain
+
+
+Portugal
+10 Posts
+ Posted - 02/20/2008 :  23:07:08     
+--------------------------------------------------------------------------------
+ 
+quote:
+--------------------------------------------------------------------------------
+Originally posted by xdanx
+
+
+quote:
+--------------------------------------------------------------------------------
+Originally posted by mackmain
+
+
+quote:
+--------------------------------------------------------------------------------
+Originally posted by xdanx
+
+@mackmain
+
+What kind of modification have you done in the apps folder? Do you mind sharing your files?
+
+--------------------------------------------------------------------------------
+
+
+
+Here is the link of all i have put in my GPS.
+
+Some things only work in Mio GPS but you can make changes if you want.
+
+http://rapidshare.com/files/93251345/Alterado.rar.html
+
+
+
+
+--------------------------------------------------------------------------------
+
+
+
+I followed your instructions but it doesn't work. I changed Navigator.exe to MyNavigator.exe. Mio Navigator.exe and Softbutton run at startup but I can only see Softbutton with a blank screen. Navigator.exe is running in the background but it doesn't show.
+
+--------------------------------------------------------------------------------
+
+
+
+Sorry i have make a changes..
+You have to download this file and replace some files
+
+http://rapidshare.com/files/93528548/Desktop.rar.html 
+ 
+ 
+xdanx
+
+
+20 Posts
+ Posted - 02/21/2008 :  07:55:25     
+--------------------------------------------------------------------------------
+ 
+quote:
+--------------------------------------------------------------------------------
+Originally posted by mackmain
+
+
+quote:
+--------------------------------------------------------------------------------
+Originally posted by xdanx
+
+
+quote:
+--------------------------------------------------------------------------------
+Originally posted by mackmain
+
+
+quote:
+--------------------------------------------------------------------------------
+Originally posted by xdanx
+
+@mackmain
+
+What kind of modification have you done in the apps folder? Do you mind sharing your files?
+
+--------------------------------------------------------------------------------
+
+
+
+Here is the link of all i have put in my GPS.
+
+Some things only work in Mio GPS but you can make changes if you want.
+
+http://rapidshare.com/files/93251345/Alterado.rar.html
+
+
+
+
+--------------------------------------------------------------------------------
+
+
+
+I followed your instructions but it doesn't work. I changed Navigator.exe to MyNavigator.exe. Mio Navigator.exe and Softbutton run at startup but I can only see Softbutton with a blank screen. Navigator.exe is running in the background but it doesn't show.
+
+--------------------------------------------------------------------------------
+
+
+
+Sorry i have make a changes..
+You have to download this file and replace some files
+
+http://rapidshare.com/files/93528548/Desktop.rar.html
+
+--------------------------------------------------------------------------------
+
+
+
+It still doesn't work. 
+ 
+ 
+tskitishvili
+
+
+USA
+41 Posts
+ Posted - 02/24/2008 :  21:44:47     
+--------------------------------------------------------------------------------
+ 
+I have a great news for those who are interesting in ROM cooking.
+I have been able to extract full ROM image of Maestro 3225. I guess same method should work for all other 3XXX and 4XXX devices. If you succeed please share your experience on this forum.
+
+1. Download the tool called DiskRW from here: http://buzzdev.net/read.php?64,34479
+2. Put DiskRW.exe on SD card and execute it your magellan. The program requires at least these two DLLs to run: commctrl.dll & AYGSHELL.dll
+3. Goto Read/Write Tab, choose SMFlash in Storage drop down list, type full file name (For example: \SDMMC Card\dump.bin) in output field or press "..." button to choose your image file location using GUI. ( I assume you have read this forum and made keyboard and file open dialog work, if not please start reading this thread from the first page)
+4. Press read button.
+5. After it finishes copy generated image to you PC. The file size of 3225 ROM is 17Mb.
+6. Download dumprom utility from here: http://www.xs4all.nl/~itsme/projects/xda/dumprom.html
+7. Execute: dumprom.exe -d FOLDER_TO_EXTRACT_FILES dump.bin 
+8. The folder you have specified will contains all \Windows files of your device. In case of Magellan 3225 the folder size is 5Mb.
+
+The next step I assume would be to replace some of the DLLs and add some missing files and cook new ROM image which can be flashed with DiskRW utility. Any volunteers ?
+
+
+ 
+
+--------------------------------------------------------------------------------
+Edited by - tskitishvili on 02/27/2008 22:55:48 
+ 
+ 
+staticblac
+
+
+11 Posts
+ Posted - 02/27/2008 :  01:02:34     
+--------------------------------------------------------------------------------
+ 
+I will begin work on a cooked rom asap. I am just glad someone finally found a method to extract the full rom to make this possible. 
+ 
+ 
+neorazz
+
+
+USA
+2 Posts
+ Posted - 02/27/2008 :  06:38:45       
+--------------------------------------------------------------------------------
+ 
+ok i tried the dumprom on the 3200 and the program wouldn't run
+says error creating process
+
+also the annoying warning message is stored in the program mgnshell.exe
+if you swap file names with the launch program of your choice is skips 
+but i haven't been able to skip loading mgnshell and still load navigator all other functions ok 
+ 
+ 
+tskitishvili
+
+
+USA
+41 Posts
+ Posted - 02/27/2008 :  23:04:27     
+--------------------------------------------------------------------------------
+ 
+quote:
+--------------------------------------------------------------------------------
+Originally posted by staticblac
+
+I will begin work on a cooked rom asap. I am just glad someone finally found a method to extract the full rom to make this possible.
+
+--------------------------------------------------------------------------------
+
+
+
+I'me very interested in the process of cooking the rom and I'm studying some stuff about the process. Please share the experience as you go. The links to the forums and web sites would be great.
+
+P.S. This is what is inside Magellan 3225:
+http://www.samsung.com/global/business/semiconductor/productInfo.do?fmly_id=229&partnum=S3C2443 
+
+--------------------------------------------------------------------------------
+Edited by - tskitishvili on 02/29/2008 06:47:49 
+ 
+ 
+ezon_03
+
+
+1 Posts
+ Posted - 03/03/2008 :  05:11:12     
+--------------------------------------------------------------------------------
+ 
+I would like to work on adding tts to my 3200. Does anyone know where I can find the 3225 files to play with? The media.cfg has a path to "speech" files so it may just be as simple as making the 3200 think it a 3225 & using the 3225 files.
+ 
+ 
+ 
+endercr
+
+
+1 Posts
+ Posted - 03/07/2008 :  23:59:42     
+--------------------------------------------------------------------------------
+ 
+quote:
+--------------------------------------------------------------------------------
+Originally posted by mackmain
+
+I have put my magellan 4040 working like the mio..But i have a problem ..
+
+When i enter to the magellan navigator i don't find way to go back to the first menu... I have already try with softbuton but doesn't work wath can i do to solve this...
+
+
+
+--------------------------------------------------------------------------------
+
+
+
+I was able to install this on my 4040 as well. The only way I have found to get back to the navigator.exe screen is to use softbutton to terminate mynavigator.exe and then exit out of softbutton. Not a real fix but I usually startup mynavigator.exe while on the road and then use this method when I'm done with the gps program. 
+ 
+ 
+cmonex
+
+
+31 Posts
+ Posted - 03/13/2008 :  20:38:41       
+--------------------------------------------------------------------------------
+ 
+quote:
+--------------------------------------------------------------------------------
+Originally posted by tskitishvili
+
+I have a great news for those who are interesting in ROM cooking.
+I have been able to extract full ROM image of Maestro 3225. I guess same method should work for all other 3XXX and 4XXX devices. If you succeed please share your experience on this forum.
+
+1. Download the tool called DiskRW from here: http://buzzdev.net/read.php?64,34479
+2. Put DiskRW.exe on SD card and execute it your magellan. The program requires at least these two DLLs to run: commctrl.dll & AYGSHELL.dll
+3. Goto Read/Write Tab, choose SMFlash in Storage drop down list, type full file name (For example: \SDMMC Card\dump.bin) in output field or press "..." button to choose your image file location using GUI. ( I assume you have read this forum and made keyboard and file open dialog work, if not please start reading this thread from the first page)
+4. Press read button.
+5. After it finishes copy generated image to you PC. The file size of 3225 ROM is 17Mb.
+6. Download dumprom utility from here: http://www.xs4all.nl/~itsme/projects/xda/dumprom.html
+7. Execute: dumprom.exe -d FOLDER_TO_EXTRACT_FILES dump.bin 
+8. The folder you have specified will contains all \Windows files of your device. In case of Magellan 3225 the folder size is 5Mb.
+
+The next step I assume would be to replace some of the DLLs and add some missing files and cook new ROM image which can be flashed with DiskRW utility. Any volunteers ?
+
+
+
+
+--------------------------------------------------------------------------------
+
+
+
+
+
+
+
+hi,
+
+i can help with cooking
+
+my site contains all tools needed - hpcmonex.net (old site was izemize.fw.hu/hpc.php if that's familiar)
+
+i also wrote documents on the process, again available on my site
+
+but you say it's only 5MB, you sure it is full OS image and not just xipkernel? 
+
+--------------------------------------------------------------------------------
+Edited by - cmonex on 03/13/2008 20:39:24 
+ 
+ 
+tskitishvili
+
+
+USA
+41 Posts
+ Posted - 03/14/2008 :  06:40:07     
+--------------------------------------------------------------------------------
+ 
+quote:
+--------------------------------------------------------------------------------
+Originally posted by cmonex
+i can help with cooking
+
+my site contains all tools needed - hpcmonex.net (old site was izemize.fw.hu/hpc.php if that's familiar)
+
+i also wrote documents on the process, again available on my site
+
+but you say it's only 5MB, you sure it is full OS image and not just xipkernel?
+
+--------------------------------------------------------------------------------
+
+
+
+Yes. I'm sure that ROM size is 5mb. Magellan did a great job to trim it. I have discovered two major parts there. First part starts at address 0x100000. Actually it starts at some other address , but there is some header at the above address which looks like TOC. I guess the first part is what you call xipkernel. I was able to extract the following set of files (In parenthesis I put my understanding of the purpose of each file):
+
+filesys.exe
+nk.exe (OS kernel)
+BIBDrv.dll
+binfs.dll (BIN File System driver for the second part)
+coredll.dll (That's the file I like to replace)
+fsdmgr.dll
+mspart.dll (partition driver)
+default.fdf (default registry)
+
+Second part starts at address 0x250000. It is in BINFS format as I understand. It contains 70 files. Some of them are windows files, some are Magellan proprietory. The total size of this partition is 3.9Mb:
+
+AutoEvent.exe, device.exe, GetGPSInfo.exe, gwes.exe, LaunchOneByOne.exe, Ufn.exe, close.2bp, ok.2bp, stdsm.2bp, viewsm.2bp, stdsm.bmp, viewsm.bmp, SysCpl.cpl, USBFNswitch.cpl, initobj.dat, IVTLicConf.dat, audevman.dll, backlight.dll, battdrvr.dll, BTHUSB.dll, BTManager.dll, BTMgr.dll, BTNic.dll, BTWavSniff.dll, busenum.dll, ceddk.dll, commctrl.dll, d3dm_sedrv.dll, devmgr.dll, diskcache.dll, fatfsd.dll, fatutil.dll, IVT_BTserial.dll, IVT_USB.dll, IVT_WavBSF.dll, kbdmouse.dll, mmtimer.dll, ohci2.dll, ole32.dll,
+ONDisk.dll, pm.dll, PowerButton.dll, regenum.dll, rsaenh.dll, s3c2443_wavedev.dll, S3C2443DISP.dll, sc2443usbfn.dll, sdbus.dll, sdhc.dll, sdhc_sc2443.dll, sdmemory.dll, serial.dll, serial_smdk2443.dll, sqlcese30.sys.dll, toolhelp.dll, touch.dll, sbd.dll, usbdisk6.dll, usbmsc.dll, usbmsfn.dll, USBUpdate.dll, 
+waveapi.dll, ceconfig.h, bttl.ini, initdb.ini, wince.nls, arial.ttf, tahoma.ttf, IVTSuccess.wav, LocalRing.wav
+
+There is some sparse information at address 0x000000, but nothing special which can catch my attention. The rest of 17Mb space is filled with 0xFF.
+
+Actually I have found your web site and downloaded some utilities, however I didn't spend much time playing with tools yet. Unfortunately the header does not exactly match with anything I've seen in documentations or on this forum. So I will gladly except any help.
+ 
+
+--------------------------------------------------------------------------------
+Edited by - tskitishvili on 03/14/2008 06:46:09 
+ 
+ 
+arkaneim
+
+
+4 Posts
+ Posted - 03/21/2008 :  11:29:52     
+--------------------------------------------------------------------------------
+ 
+quote:
+--------------------------------------------------------------------------------
+Another way to get winceimg.bin from Roadmate 3000T is to download official upgrade from Magellan:
+http://www.magellangps.com/assets/softwareupgrades/MRM3000T_311_Update.zip
+Inside the archive you will find setup.exe which is (self-extracting) yet another zip archive. 
+Image file is located under Magellan_RoadMate_3_11\COPY_OS. There is no *.cks file there, however checksum can be found in USB00002.CMD file.
+
+--------------------------------------------------------------------------------
+
+
+
+mmm.. How can i extract checksum *.cks from USB00002.CMD? I've tried opening it but without success.. 
+ 
+ 
+Stez
+
+
+United Kingdom
+1 Posts
+ Posted - 03/21/2008 :  16:16:23     
+--------------------------------------------------------------------------------
+ 
+Does anyone have the original files for a Maestro 4010 they would like to supply me with, my gps just freezes at the Warning screen when it gives you the otpion to click OK....
+Any ideas? much appreciated.
+
+ 
+ 
+ 
+tskitishvili
+
+
+USA
+41 Posts
+ Posted - 03/22/2008 :  06:07:33     
+--------------------------------------------------------------------------------
+ 
+quote:
+--------------------------------------------------------------------------------
+Originally posted by arkaneim
+
+
+quote:
+--------------------------------------------------------------------------------
+Another way to get winceimg.bin from Roadmate 3000T is to download official upgrade from Magellan:
+http://www.magellangps.com/assets/softwareupgrades/MRM3000T_311_Update.zip
+Inside the archive you will find setup.exe which is (self-extracting) yet another zip archive. 
+Image file is located under Magellan_RoadMate_3_11\COPY_OS. There is no *.cks file there, however checksum can be found in USB00002.CMD file.
+
+--------------------------------------------------------------------------------
+
+
+
+mmm.. How can i extract checksum *.cks from USB00002.CMD? I've tried opening it but without success..
+
+--------------------------------------------------------------------------------
+
+
+
+My bad. There is no checksum there. You have to generate checksum. Just search this or mionav forums. 
+ 
+ 
+AA666
+
+
+2 Posts
+ Posted - 04/03/2008 :  15:57:40     
+--------------------------------------------------------------------------------
+ 
+Here is a small software for calculating winceimg checksum, can share.
+Any success with burned Magellans? 
+ 
+ 
+ Page:  1 2 3 4 5 6 7 8 9 10 11 of 11   Topic    
+ 
+ 
+Previous Page | Next Page 
+ New Topic  Reply/Répondre 
+ Printer Friendly  Jump To:  Select Forum News - www.ProfessionGPS.com       Offres de stage et/ou d'emploi       Les News GPS et Mobilité temp       Version "Plus" - lien G pour inscrits >25/01/05 Général       Questions Générales       Les Supports et Chargeurs Voiture pour PDA et GPS       Autour des PDAs, des SEMs WinCE et des PCs       Bonnes Affaires...Mauvaises Affaires       Achat/Vente       Sondages       Commentaires/Suggestions pour le Site et le Club       Divers       ** Plan du site **       Version Francaise du Portail Les Logiciels de Navigation GPS       Logiciels de Navigation Tout Terrain       GPS sur Smartphone (on-board et off-board)       GPS sur PC Portable       Logiciels de Navigation Routière pour PDA Les Récepteurs GPS       Récepteurs GPS pour PDA et PC       GPS Portables Autonomes       Systèmes GPS Sport English Forums - General       GPS and Mobile News       Polls       PDA and PC Support       General Questions and Discussions       * Partner Forums *       Miscellaneous       Questions or Comments about the Site       Buy & Sell       Hot Deals....Cold Deals       * Personalized Assistance * Systèmes Embarqués et Autonomes et Kits PDA       Discussions Générales - Comparatifs/Choix       PDAs et PDAPhones avec GPS intégré       Systèmes Fixes       Systèmes Mobiles - Mixtes       Systèmes Mobiles - Route       TomTom GO, ONE, RIDER - www.GOtomtom.com       Systèmes Mobile Route - Garmin       Systèmes GPS avec Logiciel Navigon       SEMs Mio - www.mionav.com       ViaMichelin X-930, X-950T, X-960, X-970T, X-980T - www.X9x0.com English Forums - Hardware       GPS Receivers for PDAs and PCs       PDAs and PDAPhones with built-in GPS       Sports GPS Systems       Handheld Portable GPS Receivers       AIO (All in One) Comparisons - Choices       "All in One" Navigation Systems       Garmin Advanced Navigation Systems       Garmin nüvi forums       Garmin iX, C3x0 and C5x0 Navigation Systems       Garmin SP26xx/27xx/7x00 Navigation Systems       Lowrance iWay family (250c,350c,500c,600c and XOG)       Magellan Roadmate and Maestro AIOs       Mio AIO Forums - www.mionav.com       Packard Bell - GPS 400/Compasseo       TomTom AIO Forums - www.GOTomTom.com Forums "Autour du GPS"       GPS Datalogger, Geotagging et Trackers Temps Réel       Discussions Techniques Générales       Cartes et Outils Cartographiques en Ligne       Infos Trafic en temps réel (TMC)       TomTom PLUS et Navman NavPix Les utilisations GPS particulières       Navigation Aéronautique       GPS et Moto, Vélo, Quad et apparenté English Forums - Software       PDA Navigation Software       "Off-Road" GPS Software       Other PocketPC GPS based software       Laptop and UMPC Road Navigation       MS Streets and Trips, AutoRoute, and MapPoint Programmation GPS et Logiciels en "Beta"       Logiciels GPS (et autres) en "Beta"       Notions Générales       VB .NET       C# .NET       eVB       C++       PalmOS www.POInUSA.com - Sharing Custom POIs       Custom POI "Collections"       Suggest a "collection"       Questions and Answers Advanced Topics       General Technical Discussions       GPS Dataloggers and Geocoding       Live GPS Tracking Systems       Traffic Information (TMC)       Maps and POIs Communauté GpsPasSion       * Assistance Personnalisée - Lien Unique *       Section "pas de hors sujet"       * Offres Spéciales GpsPasSion *       Nouveaux RM Vérifiés GPS Programming       Programming Hints and Tips       "Beta" GPS software Smartphone GPS       GPS on Smartphones Forums NAVIGON - NAVIGON Forums       English Forums       News       Questions et Réponses MN|5 et MN|6       Feedback MN|5 et MN|6       Navigon Bluemedia - www.bluenav.com       Communauté NAVIGON www.POIenFrance.com sur GpsPasSion       P R E S E N T A T I O N       Index des Collectes et Tutoriaux       Les POIs Partenaires       ** Hôtels B&B **       Les Collectes de POIs sur GpsPasSion       Propositions de Collecte       Collectes Archivées       www.radarsenfrance.com sur GpsPasSion       POIs : News, Questions et Réponses www.radarsenfrance.com       P R E S E N T A T I O N       Radars : News, Questions & Réponses       Version "standard"       Questions Techniques       Divers       Version "Plus" - Lien Unique Seidio Official Forums       Seidio Website/Site Web Seidio       Seidio English Forums Mapopolis Official Forum       Mapopolis Website       News       Questions       Wishlist       User Community       Beta Testing       Forums Francais - French Forums Semsons Official Forums       Semsons Website       News       GPS software       GPS Hardware  -------------------- Home Active Topics Frequently Asked Questions Member Information Search Page  
+ 
+GpsPasSion Forums © 2002-2008_GpsPasSion/Manzanite  
+ 
+This page was generated in 0,31 seconds.  
+ 
